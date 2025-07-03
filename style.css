@@ -66,7 +66,7 @@ body {
     color: var(--color-primary-dark);
     transition: background-color var(--transition-duration) var(--transition-easing),
                 color var(--transition-duration) var(--transition-easing);
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* This enables smooth scrolling for anchor links */
     overflow-x: hidden;
 }
 
@@ -431,8 +431,6 @@ body.is-menu-visible #overlay {
 .content-section {
     padding: 3.5rem;
     margin-bottom: var(--spacing-section-gap);
-    /* Add top margin for the first section if needed after header */
-    /* margin-top: var(--spacing-section-gap); */
 }
 
 .content-section:first-of-type {
@@ -563,7 +561,6 @@ body.is-menu-visible #overlay {
 .content-section ul > li:has(> strong) strong {
     display: block; /* Ensures the strong tag behaves like a block element, taking full width */
     margin-bottom: 0; /* Adjust if strong has its own margin */
-    /* You might want to adjust font-size or color here if it deviates from the strong tag default */
 }
 
 
