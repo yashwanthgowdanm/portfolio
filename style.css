@@ -370,6 +370,7 @@ body.is-menu-visible #overlay {
     margin-right: auto;
     color: var(--color-primary-dark);
     font-weight: 300; /* Lato light */
+    text-align: justify; /* Add this line */
 }
 
 .hero-buttons {
