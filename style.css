@@ -515,23 +515,24 @@ body.is-menu-visible #overlay {
 
 /* General List Styling for content sections */
 .content-section ul {
-    list-style: none;
+    list-style: none; /* Ensure default browser bullets are off */
     padding-left: 0;
     margin-bottom: 1.5rem;
 }
 
-.content-section ul li {
+/* Apply custom bullet only to direct children of .content-section ul */
+.content-section ul > li {
     margin-bottom: 0.8rem;
     position: relative;
     padding-left: 1.8rem; /* Space for the custom bullet */
     font-size: 1.05rem;
-    line-height: 1.7; /* Slightly more relaxed line height */
+    line-height: 1.7;
     color: var(--color-primary-dark);
     font-weight: 400;
 }
 
-.content-section ul li::before {
-    /* Custom bullet for a cleaner look */
+/* Apply the custom bullet specifically to the direct children */
+.content-section ul > li::before {
     content: "•"; /* A simple, elegant dot */
     color: var(--color-phantom-blue); /* Your accent color */
     font-weight: 900; /* Make it bold */
@@ -544,6 +545,28 @@ body.is-menu-visible #overlay {
     line-height: 1; /* Align vertically with text */
 }
 
+/* For the specific items you want to remove the bullet from,
+   which are the degree titles (assuming they are wrapped in strong
+   and are direct children of the first-level li),
+   we use the :has() pseudo-class.
+*/
+.content-section ul > li:has(> strong) {
+    padding-left: 0; /* Remove the padding that was for the bullet */
+    margin-bottom: 0.5rem; /* Adjust spacing after degree title */
+}
+
+.content-section ul > li:has(> strong)::before {
+    content: none; /* Remove the custom bullet for these specific list items */
+}
+
+/* Ensure strong tag inside these specific li elements doesn't get weird styling */
+.content-section ul > li:has(> strong) strong {
+    display: block; /* Ensures the strong tag behaves like a block element, taking full width */
+    margin-bottom: 0; /* Adjust if strong has its own margin */
+    /* You might want to adjust font-size or color here if it deviates from the strong tag default */
+}
+
+
 /* Nested lists (e.g., in Education) */
 .content-section ul ul {
     margin-top: 0.5rem; /* Space between parent and nested list */
@@ -554,6 +577,20 @@ body.is-menu-visible #overlay {
 .content-section ul ul li {
     font-size: 1em; /* Keep nested list items at standard size */
     margin-bottom: 0.5rem; /* Smaller margin for nested list items */
+    padding-left: 1.8rem; /* Re-apply padding for nested bullets */
+}
+
+.content-section ul ul li::before {
+    content: "•"; /* Re-apply bullets for nested lists */
+    color: var(--color-phantom-blue);
+    font-weight: 900;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.8em;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
 }
 
 /* Generic Duration Text (could be removed if only used in experience/projects) */
