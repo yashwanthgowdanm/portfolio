@@ -23,10 +23,10 @@
     --border-color-dark: #555555; /* Darker borders */
     --shadow-color-dark: rgba(0, 0, 0, 0.4); /* Deeper shadow */
 
-    /* Typography */
-    --font-primary: 'Inter', sans-serif; /* Your chosen primary font */
-    --font-heading: 'Montserrat', sans-serif; /* Your chosen heading font */
-    --font-body: 'Inter', sans-serif; /* Phantom often uses a single font for body */
+    /* Typography Upgrades */
+    --font-heading: 'Playfair Display', serif; /* Elegant serif for headings */
+    --font-body: 'Lato', sans-serif; /* Clean sans-serif for body */
+    /* --font-accent: 'Poppins', sans-serif; */ /* Optional: for specific accents like menu/buttons */
 
     /* Spacing */
     --padding-section: 4.5rem 0 2.5rem 0; /* Default padding for sections */
@@ -41,6 +41,9 @@
 /* --- Base Body & HTML Resets --- */
 html {
     box-sizing: border-box;
+    /* Font Smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 *, *::before, *::after {
@@ -49,15 +52,16 @@ html {
 
 body {
     font-family: var(--font-body);
-    line-height: 1.7;
+    line-height: 1.75; /* Improved line height */
+    letter-spacing: 0.01em; /* Subtle letter spacing */
     margin: 0;
     padding: 0;
     background-color: var(--background-light);
     color: var(--text-color-light);
     transition: background-color var(--transition-normal), color var(--transition-normal);
-    -webkit-text-size-adjust: none; /* Prevent text size adjustment on mobile */
+    -webkit-text-size-adjust: none;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scrollbar from off-canvas menu */
+    overflow-x: hidden;
 }
 
 /* --- Dark Mode --- */
@@ -77,11 +81,16 @@ body.dark #header .logo .title {
     color: var(--text-color-dark);
 }
 
-body.dark #main .inner header h1,
+body.dark #main .inner header h1 {
+    /* Gradient text for dark mode h1 */
+    background: linear-gradient(to right, var(--color-phantom-light-blue), var(--color-phantom-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 body.dark #main .inner header p.greeting,
 body.dark #main .inner header p.tagline,
 body.dark #main .inner header p.intro-paragraph {
-    color: var(--text-color-dark); /* Ensure hero text is visible */
+    color: var(--text-color-dark);
 }
 
 body.dark #menu h2 {
@@ -104,15 +113,15 @@ body.dark .content-section {
 
 body.dark .content-section h2,
 body.dark .content-section h3 {
-    color: var(--text-color-dark); /* Default heading color */
+    color: var(--text-color-dark);
 }
 
 body.dark .content-section ul li strong {
-    color: var(--text-color-dark); /* Ensure bold text is visible */
+    color: var(--text-color-dark);
 }
 
 body.dark a {
-    color: var(--color-phantom-accent); /* Brighter links in dark mode */
+    color: var(--color-phantom-accent);
 }
 
 body.dark .button.primary-button {
@@ -127,7 +136,7 @@ body.dark .button.secondary-button {
 
 body.dark .button.secondary-button:hover {
     background-color: var(--color-phantom-accent);
-    color: var(--background-dark); /* Darker text on hover */
+    color: var(--background-dark);
 }
 
 body.dark .tiles article .image {
@@ -136,6 +145,10 @@ body.dark .tiles article .image {
 
 body.dark .tiles article a:hover .image {
     box-shadow: 0 8px 16px var(--shadow-color-dark);
+}
+
+body.dark .tiles article .content p {
+    color: var(--text-color-dark);
 }
 
 body.dark #footer {
@@ -157,19 +170,27 @@ body.dark #footer .icons li a:hover {
     border-color: var(--primary-color);
 }
 
+body.dark #footer form input[type="text"],
+body.dark #footer form input[type="email"],
+body.dark #footer form textarea {
+    background-color: var(--background-dark);
+    border-color: var(--border-color-dark);
+    color: var(--text-color-dark);
+}
+
+
 /* --- Wrapper --- */
 #wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     transition: transform var(--transition-normal);
-    position: relative; /* Needed for off-canvas menu */
-    z-index: 1; /* For stacking context with menu */
+    position: relative;
+    z-index: 1;
 }
 
-/* State when menu is active */
 body.is-menu-visible #wrapper {
-    transform: translateX(-300px); /* Adjust based on menu width */
+    transform: translateX(-300px);
 }
 
 /* --- Header --- */
@@ -248,7 +269,7 @@ body.is-menu-visible #wrapper {
     transition: all var(--transition-fast);
     display: flex;
     align-items: center;
-    text-decoration: none; /* For the menu toggle link */
+    text-decoration: none;
 }
 
 #header nav .icon-button:hover {
@@ -257,7 +278,7 @@ body.is-menu-visible #wrapper {
 }
 
 #header nav .icon-button .label {
-    display: none; /* Hide 'Menu' text on desktop, show icon only */
+    display: none;
 }
 
 /* --- Menu (Off-Canvas Navigation) --- */
@@ -266,15 +287,15 @@ body.is-menu-visible #wrapper {
     height: 100vh;
     position: fixed;
     top: 0;
-    right: -300px; /* Hidden by default */
+    right: -300px;
     width: 300px;
-    padding: 4.5rem 1rem 1rem 1rem; /* Space for fixed header, then padding */
+    padding: 4.5rem 1rem 1rem 1rem;
     z-index: 999;
     box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: right var(--transition-normal);
     display: flex;
-    flex-direction: column; /* For h2 and ul */
-    overflow-y: auto; /* Enable scrolling for long menus */
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 body.is-menu-visible #menu {
@@ -308,7 +329,7 @@ body.is-menu-visible #menu {
     padding: 1rem 1.5rem;
     text-decoration: none;
     color: var(--text-color-light);
-    font-weight: 600;
+    font-weight: 600; /* Adjusted for consistency, can be var(--font-accent) if used */
     border-radius: 8px;
     transition: background-color var(--transition-fast), color var(--transition-fast);
     display: flex;
@@ -346,23 +367,23 @@ body.is-menu-visible #overlay {
 
 /* --- Main Content Area --- */
 #main {
-    flex-grow: 1; /* Allows main content to take remaining space */
+    flex-grow: 1;
     width: 100%;
-    background-color: var(--background-light); /* Ensure background is defined */
+    background-color: var(--background-light);
     transition: background-color var(--transition-normal);
 }
 
 #main .inner {
     max-width: var(--max-width-content);
     margin: 0 auto;
-    padding: var(--wrapper-padding); /* Global padding for inner content */
+    padding: var(--wrapper-padding);
 }
 
 /* --- Hero Section (Adapted from Phantom's Header.major) --- */
 #main .inner header.major {
-    text-align: center; /* Center content like Phantom's main header */
-    margin-bottom: 4rem; /* Space below hero section */
-    padding: 3rem 0; /* Vertical padding */
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 3rem 0;
 }
 
 #main .inner header.major .greeting {
@@ -371,17 +392,22 @@ body.is-menu-visible #overlay {
     margin-bottom: 0.5rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.01em; /* Adjusted letter spacing */
 }
 
 #main .inner header.major h1 {
     font-family: var(--font-heading);
-    font-size: 4.5rem; /* Larger for impact */
-    line-height: 1.1;
+    font-size: 4.5rem;
+    line-height: 1.2; /* Improved line height */
     margin-bottom: 1rem;
-    color: var(--text-color-light);
-    letter-spacing: -0.04em;
-    word-break: break-word; /* Prevent overflow on very long names */
+    color: var(--text-color-light); /* Default color for gradient text fallback */
+    letter-spacing: -0.02em; /* Tighter letter spacing for headings */
+    word-break: break-word;
+    /* Gradient Text */
+    background: linear-gradient(to right, var(--color-phantom-blue), var(--color-phantom-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600; /* Applied specific font weight */
 }
 
 #main .inner header.major .tagline {
@@ -394,32 +420,33 @@ body.is-menu-visible #overlay {
 
 #main .inner header.major .intro-paragraph {
     font-size: 1.15rem;
-    line-height: 1.8;
+    line-height: 1.75; /* Improved line height */
     margin-bottom: 3rem;
-    max-width: 800px; /* Constrain width for readability */
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     color: var(--text-color-light);
+    font-weight: 400; /* Applied specific font weight */
 }
 
 .hero-buttons {
     display: flex;
-    justify-content: center; /* Center buttons */
+    justify-content: center;
     gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: 2rem;
 }
 
-.button { /* General button styling */
+.button {
     display: inline-block;
     padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 700; /* Applied specific font weight */
     transition: all var(--transition-normal);
     font-size: 1.05rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.05em; /* Applied specific letter spacing */
     cursor: pointer;
     text-align: center;
 }
@@ -437,7 +464,7 @@ body.is-menu-visible #overlay {
     border-color: var(--color-phantom-dark-blue);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
-    background-image: linear-gradient(to right, var(--color-phantom-dark-blue), var(--color-phantom-blue)); /* Darker gradient on hover */
+    background-image: linear-gradient(to right, var(--color-phantom-dark-blue), var(--color-phantom-blue));
 }
 
 .secondary-button {
@@ -473,16 +500,18 @@ body.is-menu-visible #overlay {
     font-size: 2.8rem;
     color: var(--primary-color);
     margin-bottom: 2rem;
-    text-align: left; /* Align section titles left */
-    letter-spacing: -0.02em;
+    text-align: left;
+    letter-spacing: -0.02em; /* Tighter letter spacing */
+    line-height: 1.2; /* Improved line height */
     position: relative;
     padding-bottom: 1rem;
+    font-weight: 600; /* Applied specific font weight */
 }
 
-.content-section h2::after { /* Phantom-style underline */
+.content-section h2::after {
     content: '';
     display: block;
-    width: 60px; /* Short underline */
+    width: 60px;
     height: 4px;
     background-color: var(--color-phantom-accent);
     margin-top: 1rem;
@@ -497,6 +526,7 @@ body.is-menu-visible #overlay {
     margin-bottom: 0.8rem;
     color: var(--text-color-light);
     line-height: 1.3;
+    font-weight: 600; /* Applied specific font weight */
 }
 
 .content-section ul {
@@ -510,7 +540,8 @@ body.is-menu-visible #overlay {
     position: relative;
     padding-left: 1.8rem;
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.75; /* Improved line height */
+    font-weight: 400; /* Applied specific font weight */
 }
 
 .content-section ul li::before {
@@ -532,10 +563,10 @@ body.is-menu-visible #overlay {
     font-style: italic;
     float: right;
     margin-left: 1rem;
-    white-space: nowrap; /* Prevent wrapping of date */
+    white-space: nowrap;
 }
 
-.duration::after { /* Clearfix */
+.duration::after {
     content: "";
     display: table;
     clear: both;
@@ -550,20 +581,20 @@ body.is-menu-visible #overlay {
 
 /* Skills List (more compact) */
 .skills-list li {
-    font-weight: normal; /* Override strong for bolding only the category */
+    font-weight: 400; /* Ensure this is 400 */
 }
 .skills-list li strong {
     font-weight: 700;
-    color: var(--primary-color); /* Highlight category name */
+    color: var(--primary-color);
 }
 
 
 /* --- Projects Section (Phantom Tiles) --- */
 .tiles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 3rem; /* Space between tiles */
-    padding: 2rem 0; /* Padding around the grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 2rem 0;
 }
 
 .tiles article {
@@ -584,7 +615,7 @@ body.is-menu-visible #overlay {
 
 .tiles article .image {
     position: relative;
-    height: 200px; /* Fixed height for consistency */
+    height: 200px;
     overflow: hidden;
     border-bottom: 1px solid var(--border-color-light);
 }
@@ -601,12 +632,12 @@ body.is-menu-visible #overlay {
     color: inherit;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Allow content to grow */
+    flex-grow: 1;
     padding: 1.5rem;
 }
 
 .tiles article a:hover .image img {
-    transform: scale(1.05); /* Subtle zoom on image hover */
+    transform: scale(1.05);
 }
 
 .tiles article h3 {
@@ -614,12 +645,13 @@ body.is-menu-visible #overlay {
     font-size: 1.4rem;
     margin-top: 0;
     margin-bottom: 0.8rem;
-    color: var(--text-color-light); /* Default title color */
+    color: var(--text-color-light);
     transition: color var(--transition-fast);
+    font-weight: 600; /* Applied specific font weight */
 }
 
 .tiles article a:hover h3 {
-    color: var(--primary-color); /* Change title color on hover */
+    color: var(--primary-color);
 }
 
 .tiles article .content {
@@ -629,9 +661,10 @@ body.is-menu-visible #overlay {
 
 .tiles article .content p {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.75; /* Improved line height */
     margin-bottom: 0.5rem;
     color: var(--text-color-light);
+    font-weight: 400; /* Applied specific font weight */
 }
 body.dark .tiles article .content p {
     color: var(--text-color-dark);
@@ -640,7 +673,7 @@ body.dark .tiles article .content p {
 .tiles article .project-links {
     display: flex;
     gap: 1rem;
-    margin-top: auto; /* Push links to the bottom */
+    margin-top: auto;
     font-size: 1rem;
     color: var(--secondary-color);
 }
@@ -696,13 +729,13 @@ body.dark .tiles article .content p {
     margin: 0 auto;
     padding: 0 var(--wrapper-padding);
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns for form and social */
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    text-align: left; /* Align content within sections */
+    text-align: left;
 }
 
 #footer section {
-    margin-bottom: 0; /* Remove default section margin */
+    margin-bottom: 0;
 }
 
 #footer h2 {
@@ -713,9 +746,10 @@ body.dark .tiles article .content p {
     letter-spacing: -0.01em;
     position: relative;
     padding-bottom: 0.8rem;
+    font-weight: 600; /* Applied specific font weight */
 }
 
-#footer h2::after { /* Phantom-style underline */
+#footer h2::after {
     content: '';
     display: block;
     width: 40px;
@@ -729,16 +763,16 @@ body.dark .tiles article .content p {
 #footer form .fields {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem; /* Space between fields */
+    gap: 1.5rem;
 }
 
 #footer form .field {
     flex-grow: 1;
-    min-width: calc(50% - 0.75rem); /* For half fields */
+    min-width: calc(50% - 0.75rem);
 }
 
 #footer form .field.half {
-    min-width: auto; /* Override for true half-width */
+    min-width: auto;
     flex-basis: calc(50% - 0.75rem);
 }
 
@@ -789,8 +823,7 @@ body.dark #footer form textarea {
 }
 
 #footer .actions input[type="submit"] {
-    @extend .button; /* Inherit button styles */
-    @extend .primary-button;
+    /* These styles are applied via .button, primary-button classes */
 }
 
 /* Social Icons in Footer */
@@ -798,13 +831,13 @@ body.dark #footer form textarea {
     list-style: none;
     padding: 0;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 1rem; /* Space between icons */
-    justify-content: flex-start; /* Align icons to the left */
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
 }
 
 #footer .icons li {
-    margin: 0; /* Remove default list item margins */
+    margin: 0;
 }
 
 #footer .icons li a {
@@ -831,7 +864,7 @@ body.dark #footer form textarea {
 }
 
 #footer .icons li .label {
-    display: none; /* Hide text label for icons */
+    display: none;
 }
 
 /* Copyright Section */
@@ -842,7 +875,7 @@ body.dark #footer form textarea {
     font-size: 0.9rem;
     color: var(--secondary-color);
     text-align: center;
-    grid-column: 1 / -1; /* Span across both columns */
+    grid-column: 1 / -1;
 }
 
 #footer .copyright li {
@@ -914,9 +947,9 @@ body.dark #footer form textarea {
     }
 
     #footer .inner {
-        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        grid-template-columns: 1fr;
         gap: 2.5rem;
-        text-align: center; /* Center content in footer sections */
+        text-align: center;
     }
     #footer h2 {
         text-align: center;
@@ -926,16 +959,16 @@ body.dark #footer form textarea {
         margin-right: auto;
     }
     #footer .icons {
-        justify-content: center; /* Center social icons */
+        justify-content: center;
     }
     #footer form .field.half {
-        flex-basis: 100%; /* Full width fields in form */
+        flex-basis: 100%;
     }
     #footer .actions {
         text-align: center;
     }
     #footer .actions li {
-        margin: 0 0.5rem; /* Adjust spacing for buttons */
+        margin: 0 0.5rem;
     }
 }
 
@@ -956,13 +989,13 @@ body.dark #footer form textarea {
         padding: 0.3rem;
     }
     #header nav .icon-button .label {
-        display: inline; /* Show 'Menu' text on very small screens */
+        display: inline;
         font-size: 0.9rem;
         margin-left: 0.5rem;
     }
 
     body.is-menu-visible #wrapper {
-        transform: translateX(-250px); /* Adjust menu width for smaller screens */
+        transform: translateX(-250px);
     }
     #menu {
         width: 250px;
@@ -996,7 +1029,7 @@ body.dark #footer form textarea {
     }
 
     .hero-buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: column;
         gap: 0.8rem;
     }
     .button {
@@ -1032,7 +1065,7 @@ body.dark #footer form textarea {
     }
 
     .tiles {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
     .tiles article .image {
