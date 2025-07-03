@@ -460,6 +460,45 @@ body.is-menu-visible #overlay {
     line-height: 1.3;
 }
 
+.experience-item {
+    padding-bottom: 1.5rem; /* Space below each item */
+    margin-bottom: 1.5rem; /* Space before the next item */
+    border-bottom: 1px solid var(--color-border); /* Subtle separator */
+}
+
+.experience-item:last-child {
+    border-bottom: none; /* No border for the last item */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.experience-item h3 {
+    font-family: var(--font-body); /* Use Lato for clarity in sub-sections */
+    font-weight: 700;
+    font-size: 1.6rem; /* Slightly smaller than main section h3 */
+    margin-top: 0; /* Reset default margin */
+    margin-bottom: 0.5rem; /* Closer to the list */
+    color: var(--color-phantom-blue); /* Make it stand out slightly */
+    display: flex; /* For aligning duration */
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.experience-item h3 .duration {
+    font-size: 0.9em;
+    color: var(--color-secondary-text);
+    font-style: italic;
+    margin-left: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.experience-item ul {
+    margin-top: 0.8rem; /* Space between heading and list */
+    margin-bottom: 0; /* Remove default ul margin-bottom */
+}
+
 .content-section ul {
     list-style: none;
     padding-left: 0;
@@ -469,23 +508,25 @@ body.is-menu-visible #overlay {
 .content-section ul li {
     margin-bottom: 0.8rem;
     position: relative;
-    padding-left: 1.8rem;
+    padding-left: 1.8rem; /* Space for the custom bullet */
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.7; /* Slightly more relaxed line height */
     color: var(--color-primary-dark);
-    font-weight: 400; /* Lato regular */
+    font-weight: 400;
 }
 
 .content-section ul li::before {
-    content: "\2022"; /* Bullet point */
-    color: var(--color-phantom-blue);
-    font-weight: bold;
+    /* Custom bullet for a cleaner look */
+    content: "•"; /* A simple, elegant dot */
+    color: var(--color-phantom-blue); /* Your accent color */
+    font-weight: 900; /* Make it bold */
     display: inline-block;
-    width: 1em;
-    margin-left: -1.8em;
+    width: 1em; /* Adjust width as needed */
+    margin-left: -1.8em; /* Pull it back into position */
     position: absolute;
     left: 0;
-    font-size: 1.2em;
+    font-size: 1.2em; /* Slightly larger bullet */
+    line-height: 1; /* Align vertically with text */
 }
 
 /* Experience Duration */
@@ -493,7 +534,7 @@ body.is-menu-visible #overlay {
     font-size: 0.95em;
     color: var(--color-secondary-text);
     font-style: italic;
-    float: right;
+    /* float: right; -- REMOVED */
     margin-left: 1rem;
     white-space: nowrap;
 }
