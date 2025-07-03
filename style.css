@@ -291,6 +291,11 @@ body.is-menu-visible #menu {
     font-size: 1.1em;
 }
 
+/* Specific styling for the resume icon in the menu */
+#menu ul li a .resume-icon {
+    font-size: 0.8em; /* Adjusted to be slightly smaller than other icons */
+}
+
 /* Overlay for when menu is open */
 #overlay {
     position: fixed;
@@ -324,7 +329,7 @@ body.is-menu-visible #overlay {
 #main .inner header.major {
     text-align: center;
     margin-bottom: var(--spacing-section-gap);
-    padding-bottom: var(--spacing-section-gap) / 2;
+    padding-bottom: calc(var(--spacing-section-gap) / 2); /* Corrected calculation */
 }
 
 #main .inner header.major .greeting {
@@ -370,7 +375,7 @@ body.is-menu-visible #overlay {
     margin-right: auto;
     color: var(--color-primary-dark);
     font-weight: 300; /* Lato light */
-    text-align: justify; /* Add this line */
+    text-align: justify;
 }
 
 .hero-buttons {
@@ -426,7 +431,14 @@ body.is-menu-visible #overlay {
 .content-section {
     padding: 3.5rem;
     margin-bottom: var(--spacing-section-gap);
+    /* Add top margin for the first section if needed after header */
+    /* margin-top: var(--spacing-section-gap); */
 }
+
+.content-section:first-of-type {
+    margin-top: 0; /* Remove top margin if it's the first content section */
+}
+
 
 .content-section h2 {
     font-family: var(--font-heading);
@@ -450,6 +462,7 @@ body.is-menu-visible #overlay {
     border-radius: 2px;
 }
 
+/* Specific h3 styling within content sections */
 .content-section h3 {
     font-family: var(--font-body); /* Using Lato for subheadings in sections for readability */
     font-weight: 700; /* Lato bold */
@@ -460,6 +473,7 @@ body.is-menu-visible #overlay {
     line-height: 1.3;
 }
 
+/* Experience Section Specifics */
 .experience-item {
     padding-bottom: 1.5rem; /* Space below each item */
     margin-bottom: 1.5rem; /* Space before the next item */
@@ -499,6 +513,7 @@ body.is-menu-visible #overlay {
     margin-bottom: 0; /* Remove default ul margin-bottom */
 }
 
+/* General List Styling for content sections */
 .content-section ul {
     list-style: none;
     padding-left: 0;
@@ -529,15 +544,37 @@ body.is-menu-visible #overlay {
     line-height: 1; /* Align vertically with text */
 }
 
-/* Experience Duration */
+/* Nested lists (e.g., in Education) */
+.content-section ul ul {
+    margin-top: 0.5rem; /* Space between parent and nested list */
+    margin-left: 1.5rem; /* Indent nested list */
+    margin-bottom: 0.5rem; /* Less space below nested list */
+}
+
+.content-section ul ul li {
+    font-size: 1em; /* Keep nested list items at standard size */
+    margin-bottom: 0.5rem; /* Smaller margin for nested list items */
+}
+
+/* Generic Duration Text (could be removed if only used in experience/projects) */
 .duration {
     font-size: 0.95em;
     color: var(--color-secondary-text);
     font-style: italic;
-    /* float: right; -- REMOVED */
     margin-left: 1rem;
     white-space: nowrap;
 }
+
+/* Project duration within tiles */
+.duration-project {
+    font-size: 0.8em; /* Slightly smaller for project tiles */
+    color: var(--color-secondary-text);
+    font-style: italic;
+    margin-left: 0.5rem; /* Closer to the title */
+    white-space: nowrap;
+    display: inline-block; /* Allows it to sit next to the title */
+}
+
 
 /* Skills List */
 .skills-list li strong {
@@ -602,6 +639,9 @@ body.is-menu-visible #overlay {
     color: var(--color-primary-dark);
     transition: color var(--transition-duration) var(--transition-easing);
     font-weight: 700; /* Playfair Display bold */
+    display: flex; /* Allow duration to sit next to it */
+    align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .tiles article a:hover h3 {
