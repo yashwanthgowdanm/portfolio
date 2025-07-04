@@ -13,14 +13,14 @@
 /* CSS Variables for Easy Customization */
 :root {
     /* Colors */
-    --primary-bg: #FDFDFD;         /* Off-white background */
-    --secondary-bg: #FFFFFF;       /* Pure white for content boxes */
-    --text-color: #3C3C3C;         /* Dark grey for main text */
-    --heading-color: #1A1A1A;      /* Very dark grey for headings */
-    --accent-color: #7B68EE;       /* Medium Slate Blue - a sophisticated, calm accent */
-    --accent-hover: #5D4AD8;      /* Slightly darker accent for hover */
-    --light-border: #E0E0E0;       /* Light grey for subtle borders */
-    --footer-bg: #2C3E50;          /* Dark navy for footer */
+    --primary-bg: #FDFDFD;          /* Off-white background */
+    --secondary-bg: #FFFFFF;        /* Pure white for content boxes */
+    --text-color: #3C3C3C;          /* Dark grey for main text */
+    --heading-color: #1A1A1A;       /* Very dark grey for headings */
+    --accent-color: #7B68EE;        /* Medium Slate Blue - a sophisticated, calm accent */
+    --accent-hover: #5D4AD8;        /* Slightly darker accent for hover */
+    --light-border: #E0E0E0;        /* Light grey for subtle borders */
+    --footer-bg: #2C3E50;           /* Dark navy for footer */
 
     /* Fonts */
     --font-serif: 'Playfair Display', serif; /* For headings, elegant */
@@ -151,7 +151,7 @@ section h2::after {
 }
 
 .main-nav {
-    display: flex;
+    display: flex; /* FIX: Added display: flex */
     justify-content: space-between;
     align-items: center;
 }
@@ -300,7 +300,6 @@ section h2::after {
 }
 
 /* Skills Section */
-/* Skills Section */
 .skills-section {
     background-color: var(--primary-bg);
 }
@@ -348,6 +347,13 @@ section h2::after {
     color: var(--text-color);
 }
 
+/*
+NOTE: The .skill-list and .skill-list li styles below are defined in your CSS,
+but the <ul> tags inside your .skill-category in index.html DO NOT have the
+class "skill-list". If you want your skills to appear as rounded tags
+(like these styles suggest), you need to add class="skill-list" to your <ul>
+elements in index.html for each skill category.
+*/
 .skill-list {
     display: flex;
     flex-wrap: wrap;
@@ -422,6 +428,7 @@ section h2::after {
 }
 
 .project-grid {
+    display: grid; /* FIX: Added display: grid */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 columns on larger screens */
     gap: 30px;
 }
@@ -474,7 +481,6 @@ section h2::after {
 }
 
 /* Contact Section */
-/* Contact Section */
 .contact-section {
     background-color: var(--secondary-bg);
     padding: 80px 0;
@@ -520,6 +526,36 @@ section h2::after {
     color: var(--accent-color);
 }
 
+/* Social Links in Contact Section (added these, as they were present in HTML but not styled) */
+.social-links {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.social-links h3 {
+    font-family: var(--font-serif);
+    color: var(--heading-color);
+    margin-bottom: 25px;
+    font-size: 1.6em;
+}
+
+.social-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-links ul li a {
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links ul li a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
 /* Footer */
 .main-footer {
     background-color: var(--footer-bg);
@@ -550,6 +586,9 @@ section h2::after {
     .hero-image {
         order: -1; /* Move image above text on smaller screens */
     }
+    .main-nav {
+        flex-direction: column; /* Stack logo and nav items on smaller screens */
+    }
     .main-nav ul {
         flex-direction: column;
         margin-top: 20px;
@@ -569,7 +608,7 @@ section h2::after {
         padding: 70px 0;
     }
     .about-grid, .skills-grid, .project-grid {
-        grid-template-columns: 1fr; /* Stack columns */
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
     }
     .hero-image img {
         width: 250px;
