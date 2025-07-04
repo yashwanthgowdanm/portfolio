@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YASHWANTH GOWDA - Portfolio</title>
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts: Inter for body, Playfair Display for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Accessibility: Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="portfolio-wrapper">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" aria-label="Main navigation">
+            <!-- Profile Info (visible on desktop) -->
+            <aside class="profile-info" aria-label="Profile">
+                <div class="profile-image" aria-hidden="true">
+                    <!-- Replace with your actual profile image URL -->
+                    <img src="profile.jpg" alt=" Yashwanth Gowda profile picture" class="img-fluid rounded-circle">
+                    <!-- Alternatively, if you prefer the icon: <i class="fas fa-robot"></i> -->
+                </div>
+                <div>
+                    <span class="d-block fs-4 fw-bold text-white mb-2">YASHWANTH GOWDA</span>
+                    <span class="d-block text-secondary">Aspiring Robotics Engineer</span>
+                </div>
+            </aside>
+
+            <ul class="sidebar-nav nav flex-column align-items-md-start">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home"><i class="fas fa-home me-3"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about"><i class="fas fa-user-alt me-3"></i>About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#education"><i class="fas fa-graduation-cap me-3"></i>Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#experience"><i class="fas fa-briefcase me-3"></i>Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects"><i class="fas fa-project-diagram me-3"></i>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills"><i class="fas fa-code me-3"></i>Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact"><i class="fas fa-envelope me-3"></i>Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper" id="main-content" tabindex="-1">
+
+            <!-- Home Section -->
+            <section id="home" class="section-padding" aria-labelledby="main-heading" data-aos="fade-up">
+                <h2 class="fs-2 mb-4">Hello, I'm <span class="text-primary">YASHWANTH GOWDA</span></h2>
+                <p class="fs-4 mb-3"><strong>"Engineering the physical. Coding the digital. Securing the invisible."</strong></p>
+                <p class="fs-4 mb-5"> A robotics student with roots in mechanical engineering and real-world experience in cybersecurity, blending mechanical design, automation, and cybersecurity to build innovative, secure, and intelligent systems.</p>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="section-padding" aria-labelledby="about-heading" data-aos="fade-up" data-aos-delay="100">
+                <h2 id="about-heading" class="fs-2 mb-5">About Me</h2>
+                <p class="fs-5 mb-4">
+                    As an aspiring Robotics Engineer, I bring a robust foundation in Mechanical Engineering, honed through a Bachelor's degree from Bangalore Institute of Technology, and am currently advancing my expertise with a Master's in Robotics and Autonomous Systems at Arizona State University. My academic journey has equipped me with a comprehensive understanding of mechanical design, automation, and control systems.
+                </p>
+                <p class="fs-5 mb-4">
+                    My practical experience spans across diverse technical domains. As a CATIA Intern, I gained hands-on proficiency in 3D modeling and Finite Element Analysis, optimizing product designs and significantly reducing flaws. My internship in Java with OOPs further broadened my capabilities, leading to the development of data-driven tools like the Instagram Profile Growth Rate and YouTube Subscriber Growth Calculators, demonstrating my knack for problem-solving and enhancing software functionality.
+                </p>
+                <p class="fs-5 mb-4">
+                    Beyond core engineering and software, my role as a Cybersecurity GRC Intern at CyRAACS provided me with invaluable insights into information security protocols, risk mitigation, and compliance with industry standards such as ISO, NIST, and GDPR. This experience has instilled in me a strong analytical mindset and the ability to collaborate effectively in cross-functional teams to strengthen critical infrastructure.
+                </p>
+                <p class="fs-5">
+                    I am passionate about the convergence of mechanical design, intelligent systems, and automation. My current Master's program is deepening my skills in advanced robotics, autonomous vehicle systems, and sophisticated control engineering. I am actively seeking summer internships and full-time roles where I can apply my interdisciplinary background to contribute to innovative projects in industrial robotics, automated vehicles, and advanced automation solutions.
+                </p>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section-padding" aria-labelledby="education-heading" data-aos="fade-up" data-aos-delay="200">
+                <h2 id="education-heading" class="fs-2 mb-5">Education</h2>
+                <div class="row g-4">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="250">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold">Master of Science in Robotics and Autonomous Systems</h3>
+                            <p class="mb-2">Mechanical and Aerospace Engineering (MAE) Concentration. <br> Expected May 2026</p>
+                            <p class="mb-2">Arizona State University, Tempe, AZ, USA</p>
+                            <p class="fs-5 mb-4">
+                                I am currently pursuing a Master of Science in Robotics and Autonomous Systems at Arizona State University, with an expected graduation in May 2026 and a current GPA of 3.07. 
+                            </p>
+                            <p class="fs-5 mb-4"> 
+                                The academic journey has included advanced coursework in areas such as Experimentation and Deployment of Robotic Systems, Multi-Robot Systems, Perception in Robotics. I have also explored foundational topics like Linear Algebra in Engineering and Modelling and Control of Robots, while continuing to build expertise in Reinforcement Learning, System Dynamics, and Control, and Applied Machine Learning for Mechanical Engineering. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold">Bachelor of Engineering in Mechanical Engineering</h3>
+                            <p class="mb-2">Graduated September 2023</p>
+                            <p>Bangalore Institute of Technology, Bengaluru, India</p>
+                            <p class="fs-5 mb-4">
+                                I completed my Bachelor of Engineering in Mechanical Engineering from bangalore Institute of Technology, Bengaluru with a First Class. I successfully completed my program in September 2023. My academic journey included a comprehensive curriculum with a strong focus on core mechanical engineering principles.
+                            </p>
+                            <p class="fs-5 mb-4">
+                                Throughout my studies, I gained a solid foundation in key mechanical engineering subjects such as Mechanics, Thermodynamics, Material Science, Fluid Mechanics, Kinematics of Machines, and Design of Machine Elements.
+                            </p>
+                            <p class="fs-5 mb-4">
+                                My curriculum also emphasized several future-ready subjects that equipped me with skills essential for modern engineering. These included Computer Aided Modelling and Analysis, Quality Management, Computer Aided Design and Manufacturing, and Additive Manufacturing. These experiences provided me with crucial knowledge in advanced manufacturing processes, design, and simulation, which are vital in today's rapidly evolving engineering landscape. I also successfully completed all requisite AICTE Activity Points.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section-padding" aria-labelledby="experience-heading" data-aos="fade-up" data-aos-delay="300">
+                <h2 id="experience-heading" class="fs-2 mb-5">Professional Experience</h2>
+                <div class="row g-4">
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="350">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold">Cybersecurity GRC Intern</h3>
+                            <p class="mb-2">CyRAACS | March 2022 – January 2023</p>
+                            <ul class="list-disc list-inside">
+                                <li>Implemented InfoSec protocols, reducing threat exposure by 50% and ensuring full compliance with ISO, NIST, GDPR.</li>
+                                <li>Conducted information security audits and collaborated with cross-functional teams to enhance system resilience, contributing to risk mitigation across multiple environments, and demonstrating strong communication and analytical skills.</li>
+                                <li>Assisted in risk assessments and incident management, proactively strengthening cybersecurity frameworks to protect critical infrastructure. Worked closely with clients to tailor security strategies.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold">CATIA Intern</h3>
+                            <p class="mb-2">GTTC | September 2021 - September 2021</p>
+                            <ul class="list-disc list-inside">
+                                <li>Designed and optimized 3D models using CATIA V5, improving product development efficiency and precision.</li>
+                                <li>Performed Finite Element Analysis (FEA) and structural simulations, reducing design flaws by 30% and improving overall product reliability, worked in a collaborative environment, and independently handling complex design tasks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="450">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold">Java with OOPs Intern</h3>
+                            <p class="mb-2">IC Solutions | August 2020 – August 2020</p>
+                            <ul class="list-disc list-inside">
+                                <li>Developed and deployed data-driven tools, including Instagram Profile Growth Rate and YouTube Subscriber Growth Calculators, enhancing social media analytics.</li>
+                                <li>Created problem-solving applications such as the Feedback Rating Calculator and Fortune Cookie Simulator, improving software functionality and user engagement.</li>
+                                <li>Optimized code efficiency, reducing execution time by 15%, enhancing overall application performance and scalability, while collaborating with a team of developers, showcasing adaptability, problem-solving, and time management skills.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold">Office Assistant (Part-Time)</h3>
+                            <p class="mb-2">Sapthagiri Group, Bengaluru, India | January 2019 – August 2024</p>
+                            <ul class="list-disc list-inside">
+                                <li>Streamlined daily administrative tasks by scheduling meetings, managing documents, and supporting efficient communication across teams, ensuring seamless office operations.</li>
+                                <li>Enhanced office processes through data entry, inventory tracking, and vendor coordination, improving efficiency.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section-padding" aria-labelledby="projects-heading" data-aos="fade-up" data-aos-delay="400">
+                <h2 id="projects-heading" class="fs-2 mb-5">Academic Projects</h2>
+                <div class="row g-4">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="450">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-2">Effect of Inclination on Natural Convection in Porous Enclosures</h3>
+                            <p class="mb-4">Performed thermal analysis with ANSYS to investigate heat transfer in porous enclosures, designing thermal management systems for robotics enclosures.</p>
+                            <p class="text-primary fw-semibold mb-4">Duration: February 2021 to August 2021</p>
+                            <a href="https://github.com/your-github-username/project-convection" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold" aria-label="View project 'Effect of Inclination on Natural Convection in Porous Enclosures' on GitHub">View on GitHub <i class="fab fa-github ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-2">Microcontroller-Based Line Follower Automated Guided Vehicle</h3>
+                            <p class="mb-4">Created an automated guided vehicle (AGV) using Arduino, incorporating sensors for transporting materials within a factory, aimed at enhancing automation in manufacturing industries, showcasing skills in automation and real-time control systems, logistics and industrial automation.</p>
+                            <p class="text-primary fw-semibold mb-4">Duration: August 2021 to August 2022</p>
+                            <a href="https://github.com/your-github-username/project-agv" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold" aria-label="View project 'Microcontroller-Based Line Follower Automated Guided Vehicle' on GitHub">View on GitHub <i class="fab fa-github ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="550">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-2">Debris Detection using Swarm Robots</h3>
+                            <p class="mb-4">Designed and simulated a decentralized swarm robotics system using MATLAB, implemented SLAM algorithms to facilitate efficient navigation & debris detection & confirmed the swarm's capability to work together autonomously in mapping debris.</p>
+                            <p class="text-primary fw-semibold mb-4">Duration: August 2024 to December 2024</p>
+                            <a href="https://github.com/chetanborse1999/multi-robot-debris-detection-mapping" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold" aria-label="View project 'Debris Detection using Swarm Robots' on GitHub">View on GitHub <i class="fab fa-github ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-2">Autonomous Warehouse Patrolling Robot</h3>
+                            <p class="mb-4">This project demonstrates a scalable and low-cost robotic solution for structured warehouse environments. It uses multi-sensor fusion (LiDAR, IMU, Depth) and layered ROS 2 control architecture to enable fully autonomous patrols.</p>
+                            <p class="text-primary fw-semibold mb-4">Duration: January 2025 to May 2025</p>
+                            <a href="https://asu-ras598-2025-s-team08.github.io/autonomous-warehouse-patrolling-robot/" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold" aria-label="View project 'Autonomous Warehouse Patrolling Robot' on GitHub">View on GitHub <i class="fab fa-github ms-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- NEW PROJECTS ADDED HERE -->
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="650">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-2">Instagram Profile Growth Rate Calculator</h3>
+                            <p class="mb-4">Developed a Java-based tool to determine the follower growth rate of an Instagram account, helping users track follower growth over time. It considers current followers, unfollowers per month, and posts per month to derive the growth rate.</p>
+                            <p class="text-primary fw-semibold mb-4">Tools Used: JDOODLE Online Java Compiler</p>
+                            <a href="https://github.com/your-github-username/instagram-growth-calculator" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold" aria-label="View project 'Instagram Profile Growth Rate Calculator' on GitHub">View on GitHub <i class="fab fa-github ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-2">YouTube Subscriber Growth Calculator</h3>
+                            <p class="mb-4">Created a Java application to calculate the future subscriber count of a YouTube channel. This tool helps channel owners track growth and improve content strategy by considering current subscribers, growth rate, and time interval.</p>
+                            <p class="text-primary fw-semibold mb-4">Tools Used: JDOODLE Online Java Compiler</p>
+                            <a href="https://github.com/your-github-username/youtube-growth-calculator" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold" aria-label="View project 'YouTube Subscriber Growth Calculator' on GitHub">View on GitHub <i class="fab fa-github ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section-padding" aria-labelledby="skills-heading" data-aos="fade-up" data-aos-delay="500">
+                <h2 id="skills-heading" class="fs-2 mb-5">Technical Skills</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="550">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-3">CAD & Simulation</h3>
+                            <ul class="list-disc list-inside">
+                                <li>Solid Edge</li>
+                                <li>CATIA V5</li>
+                                <li>SolidWorks</li>
+                                <li>CNC Train</li>
+                                <li>Ansys</li>
+                                <li>MATLAB</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-3">Programming & Robotics</h3>
+                            <ul class="list-disc list-inside">
+                                <li>C</li>
+                                <li>Java</li>
+                                <li>Python</li>
+                                <li>Robotic Operating Systems (ROS)</li>
+                                <li>Arduino</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="650">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-3">Cybersecurity & Tools</h3>
+                            <ul class="list-disc list-inside">
+                                <li>Risk assessment, Incident management</li>
+                                <li>Security auditing, Patch Management</li>
+                                <li>Cybersecurity Frameworks (ISO 27001, HIPAA, NIST CSF, CCPA)</li>
+                                <li>Phishing Attack Monitoring</li>
+                                <li>Microsoft Defender 365, SAFEScore.ai, KDMARC, Infosec IQ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                        <div class="card-item">
+                            <h3 class="h4 fw-bold mb-3">Other Tools & Software</h3>
+                            <ul class="list-disc list-inside">
+                                <li>Microsoft Office Suite</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <!-- Contact Section -->
+        <section id="contact" class="section-padding text-center" aria-labelledby="contact-heading" data-aos="fade-up" data-aos-delay="600">
+            <h2 id="contact-heading" class="fs-2 mb-4">Connect with Me</h2>
+            <p class="fs-5 mb-5">I’m currently seeking summer internships and full-time roles in industrial robotics, automated vehicles, controls engineering, and automation. Let’s connect!</p>
+
+             <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+                   <!-- Email Button -->
+                   <a href="mailto:yashgangatkar@gmail.com" target="_blank" rel="noopener" class="btn btn-outline-primary d-flex align-items-center gap-2 px-3 py-2">
+                   <i class="fas fa-envelope"></i> Email
+                   </a>
+
+             <!-- Phone Button -->
+              <a href="tel:+16235339340" class="btn btn-outline-success d-flex align-items-center gap-2 px-3 py-2">
+              <i class="fas fa-phone"></i> Call
+              </a>
+
+             <!-- LinkedIn Button -->
+              <a href="https://linkedin.com/in/nmyashwanthgowda" target="_blank" rel="noopener" class="btn btn-outline-info d-flex align-items-center gap-2 px-3 py-2">
+              <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+
+             <!-- GitHub Button -->
+              <a href="https://github.com/yashwanthgowdanm" target="_blank" rel="noopener" class="btn btn-outline-dark d-flex align-items-center gap-2 px-3 py-2">
+              <i class="fab fa-github"></i> GitHub
+              </a>
+
+             <!-- Resume Button -->
+             <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-primary d-flex align-items-center gap-2 px-3 py-2">
+             <i class="fas fa-file-download"></i> Download Resume
+             </a>
+             </div>
+
+            <p class="fs-6 text-muted">Feel free to reach out or download my resume above!</p>
+        </section>
+
+        </main>
+    </div>
+
+    <!-- Back to Top Button -->
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" 
+        class="btn btn-primary rounded-circle shadow-lg position-fixed" 
+        style="bottom: 30px; right: 30px; z-index: 999;" 
+        aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
