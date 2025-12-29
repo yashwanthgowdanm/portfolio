@@ -9,7 +9,7 @@
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif !important; -webkit-font-smoothing: antialiased; }
-    .glass-card { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); }
+    .glass-card { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .grad-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; }
     @media (prefers-color-scheme: dark) { 
       body { background: #0b0f14; color: #f1f5f9; }
@@ -21,6 +21,7 @@
     [data-theme="dark"] .muted { color: #94a3b8; }
     .navlink:hover { color: #6366f1; }
     .navlink.active { color: #6366f1; font-weight: 700; }
+    .glass-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1); }
   </style>
 </head>
 <body class="flex flex-col min-h-screen selection:bg-indigo-500/30">
@@ -30,7 +31,7 @@
       <a href="index.html" class="font-bold tracking-tight text-xl grad-text">YASHWANTH GOWDA</a>
       <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
         <a href="index.html" class="navlink transition">Home</a>
-        <a href="about.html" class="navlink transition">About</a>
+        <a href="about.html" class="navlink active transition">About</a>
         <a href="education.html" class="navlink transition">Education</a>
         <a href="experience.html" class="navlink transition">Experience</a>
         <a href="projects.html" class="navlink transition">Projects</a>
@@ -57,29 +58,90 @@
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-16 flex-grow">
-    <div class="flex items-center gap-3 mb-8">
+  <main class="max-w-6xl mx-auto px-4 py-16 flex-grow">
+    
+    <div class="flex items-center gap-3 mb-10">
       <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 shadow-lg shadow-indigo-500/20"></div>
       <h2 class="text-4xl font-bold grad-text">About Me</h2>
     </div>
-    
-    <div class="glass-card rounded-3xl p-8 md:p-10 shadow-xl shadow-indigo-100/50 dark:shadow-none relative overflow-hidden">
-      <div class="absolute top-6 right-8 text-8xl opacity-5 font-serif text-indigo-500 select-none">”</div>
-      <p class="text-lg leading-relaxed muted mb-6">
-        As an aspiring <strong class="text-slate-700 dark:text-slate-200">Robotics Engineer</strong>, I bring a robust foundation in Mechanical Engineering (B.E., Bangalore Institute of Technology) and am advancing my expertise with an M.S. in Robotics &amp; Autonomous Systems at <strong class="text-indigo-500">Arizona State University</strong>.
-      </p>
-      <p class="text-lg leading-relaxed muted mb-6">
-        Hands‑on internships across CATIA/FEA, Java/OOPs tooling, and Cybersecurity GRC have shaped my cross‑disciplinary mindset. I am not just a mechanical engineer; I span the gap between <strong class="text-slate-700 dark:text-slate-200">mechanical design, automation, control systems, and digital security.</strong>
-      </p>
-      <p class="text-lg leading-relaxed muted border-l-4 border-indigo-500 pl-4">
-        I'm passionate about the convergence of mechanical design and intelligent systems. My current focus areas include autonomous systems, perception, multi‑robot systems, and control. I’m actively seeking internships and full‑time roles in industrial robotics, automated vehicles, and advanced automation.
-      </p>
+
+    <div class="grid lg:grid-cols-[1.5fr,1fr] gap-10 items-start">
+      
+      <div class="glass-card rounded-3xl p-8 md:p-10 relative overflow-hidden">
+        <div class="absolute top-4 right-6 text-8xl opacity-5 font-serif text-indigo-500 select-none">”</div>
+        
+        <div class="space-y-6 text-lg leading-relaxed muted">
+          <p>
+            I am an aspiring <strong class="text-slate-700 dark:text-slate-200">Robotics Engineer</strong> with a strong foundation in mechanical engineering and a cross-disciplinary mindset that spans automation, control systems, and cybersecurity. Currently, I am upgrading my expertise with a <strong class="text-indigo-500">Master's in Robotics and Autonomous Systems</strong> at Arizona State University (Expected May 2026), following my Bachelor's in Mechanical Engineering from Bangalore Institute of Technology.
+          </p>
+          
+          <p>
+            My technical proficiency covers the full robotics stack. I am proficient in <strong class="text-slate-700 dark:text-slate-200">CAD/CAM and Mechanical Simulation</strong> (SolidWorks, CATIA V5, ANSYS) as well as <strong class="text-slate-700 dark:text-slate-200">Programming and Control</strong> (ROS 2, Python, C++, MATLAB, Simulink). This skillset allows me to engineer physical systems while writing the intelligent software that drives them.
+          </p>
+          
+          <p>
+            My professional experience is uniquely diverse. As a <strong class="text-slate-700 dark:text-slate-200">Cybersecurity GRC Intern at CyRAACS</strong>, I implemented ISO 27001 protocols and reduced threat exposure by 50%, giving me a rare perspective on securing industrial systems. Prior to that, I worked as a <strong class="text-slate-700 dark:text-slate-200">Mechanical Design Intern at GTTC</strong>, optimizing 3D models and reducing design flaws by 30% through FEA. I also gained software development experience at IC Solutions, where I built data-driven analytics tools using Java(OOPs).
+          </p>
+
+          <p>
+            I apply this knowledge through rigorous academic projects. With teams, I have designed <strong class="text-slate-700 dark:text-slate-200">Autonomous warehouse robot</strong> using multi-sensor fusion, developed solar irrigation controllers with MATLAB that achieved 60% faster rise times, developed debris detection with swarm robots, and engineered unsupervised anomaly detection frameworks for rocket engines using hybrid LSTM-GANs.
+          </p>
+
+          <p>
+            I am actively seeking summer internships and full-time roles in <strong class="text-indigo-500">industrial robotics, automated vehicles, and controls engineering</strong> where I can leverage my diverse background to build secure and efficient autonomous systems.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-3xl p-4 flex flex-col gap-4 sticky top-24 transform transition hover:-translate-y-2 duration-500">
+        <div class="relative rounded-2xl overflow-hidden aspect-[3/4] group">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+          
+          <img src="img/second-profile.jpg" alt="Yashwanth Gowda" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-105" />
+          
+          <div class="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <span class="text-white font-bold text-lg">Yashwanth Gowda</span>
+          </div>
+        </div>
+        
+        <div class="p-2">
+          <h3 class="font-bold text-slate-800 dark:text-white mb-3 px-2 flex items-center gap-2">
+            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            Community Service &amp; Volunteering
+          </h3>
+          <ul class="space-y-3">
+             <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+               <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0"></div>
+               <div>
+                 <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">ISSC Volunteer</span>
+                 <span class="block text-xs muted mt-0.5">Arizona State University<br>Sep 2024 – Present </span>
+               </div>
+             </li>
+             <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+               <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500 shrink-0"></div>
+               <div>
+                 <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">SW Robotics Symposium</span>
+                 <span class="block text-xs muted mt-0.5">Event Volunteer<br>Oct – Nov 2024 </span>
+               </div>
+             </li>
+             <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+               <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></div>
+               <div>
+                 <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">BIT Language Festivals</span>
+                 <span class="block text-xs muted mt-0.5">Event Volunteer and Coordinator<br>2018 – 2021 </span>
+               </div>
+             </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </main>
 
   <footer class="border-t border-slate-200/50 dark:border-slate-800 py-6 text-center text-sm muted">
     © <span id="year"></span> Yashwanth Gowda.
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
