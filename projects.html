@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yashwanth Gowda — Academic Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif !important; }
+    .card { background: rgba(255,255,255,0.7); border-color: rgba(148,163,184,.3); backdrop-filter: blur(10px); }
+    .grad-text { background: linear-gradient(135deg,#6366f1,#06b6d4); -webkit-background-clip:text; background-clip:text; color: transparent; }
+    .navlink:hover:after{ width:100%; content:""; position:absolute; left:0; bottom:-6px; height:2px; background: linear-gradient(90deg,#6366f1,#06b6d4); }
+    .shadow-lift { transition: transform .25s ease, box-shadow .25s ease; }
+    .shadow-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(2,6,23,.15); }
+    @media (prefers-color-scheme: dark) { body { background: #0b0f14; color: #e5e7eb; } .card { background: rgba(15,23,42,0.55); border-color: rgba(51,65,85,.6); } .muted{color:#9ca3af;} }
+    [data-theme="dark"] body { background:#0b0f14; color:#e5e7eb; }
+    [data-theme="dark"] .card { background: rgba(15,23,42,0.55); border-color: rgba(51,65,85,.6); }
+    [data-theme="dark"] .muted { color:#9ca3af; }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="font-semibold tracking-tight grad-text">YASHWANTH GOWDA</a>
+      <nav class="hidden lg:flex items-center gap-5 text-sm font-medium">
+        <a href="index.html" class="navlink">Home</a>
+        <a href="about.html" class="navlink">About</a>
+        <a href="education.html" class="navlink">Education</a>
+        <a href="experience.html" class="navlink">Experience</a>
+        <a href="projects.html" class="navlink font-bold text-indigo-500">Projects</a>
+        <a href="personal-projects.html" class="navlink">Personal Projects</a>
+        <a href="skills.html" class="navlink">Skills</a>
+        <a href="contact.html" class="navlink">Contact</a>
+      </nav>
+      <button id="themeToggle" class="text-sm px-3 py-1.5 rounded-xl border card">Toggle theme</button>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-12 flex-grow">
+    <div class="flex items-center gap-3 mb-8">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500"></div>
+      <h2 class="text-3xl font-bold grad-text">Academic Projects</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      
+      <article class="card border rounded-2xl overflow-hidden shadow-lift flex flex-col h-full">
+        <img src="img/papi-controller.jpg" alt="PAPI Controller" class="aspect-[16/9] object-cover" loading="lazy" />
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="text-sm muted mb-1">Aug 2025 – Dec 2025</div>
+          <h3 class="font-semibold text-lg">PAPI Controller: Solar Irrigation System (ASU)</h3>
+          <p class="mt-2 text-sm flex-1">Designed a Two-Degree-of-Freedom hybrid controller for solar pumps using MATLAB, achieving 60% faster rise time.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-md border">MATLAB/Simulink</span>
+            <span class="px-2 py-1 rounded-md border">Control Theory</span>
+          </div>
+          <div class="mt-4"><a href="https://github.com/yashwanthgowdanm/PAPIController" target="_blank" class="underline hover:text-indigo-500">View Project</a></div>
+        </div>
+      </article>
+
+      <article class="card border rounded-2xl overflow-hidden shadow-lift flex flex-col h-full">
+        <img src="img/hybridlstm.png" alt="Prophet LSTM" class="aspect-[16/9] object-cover" loading="lazy" />
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="text-sm muted mb-1">Aug 2025 – Dec 2025</div>
+          <h3 class="font-semibold text-lg">ProphetLSTM-GAN (ASU)</h3>
+          <p class="mt-2 text-sm flex-1">Developed unsupervised anomaly detection for liquid rocket engine telemetry using a hybrid LSTM-GAN.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-md border">Machine Learning</span>
+            <span class="px-2 py-1 rounded-md border">PyTorch</span>
+          </div>
+          <div class="mt-4"><a href="https://github.com/yashwanthgowdanm/ProphetLSTM-GAN" target="_blank" class="underline hover:text-indigo-500">View Project</a></div>
+        </div>
+      </article>
+
+      <article class="card border rounded-2xl overflow-hidden shadow-lift flex flex-col h-full">
+        <img src="img/warehouse-patrol.jpg" alt="Warehouse Patrol" class="aspect-[16/9] object-cover" loading="lazy" />
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="text-sm muted mb-1">Jan 2025 – May 2025</div>
+          <h3 class="font-semibold text-lg">Autonomous Warehouse Patrolling Robot (ASU)</h3>
+          <p class="mt-2 text-sm flex-1">Scalable robotic solution for warehouse environments using multi-sensor fusion and ROS 2.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-md border">ROS 2</span>
+            <span class="px-2 py-1 rounded-md border">SLAM</span>
+          </div>
+          <div class="mt-4"><a href="https://asu-ras598-2025-s-team08.github.io/autonomous-warehouse-patrolling-robot/" target="_blank" class="underline hover:text-indigo-500">View Project</a></div>
+        </div>
+      </article>
+
+      <article class="card border rounded-2xl overflow-hidden shadow-lift flex flex-col h-full">
+        <img src="img/swarm-debris.png" alt="Debris Detection" class="aspect-[16/9] object-cover" loading="lazy" />
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="text-sm muted mb-1">Aug 2024 – Dec 2024</div>
+          <h3 class="font-semibold text-lg">Debris Detection using Swarm Robots (ASU)</h3>
+          <p class="mt-2 text-sm flex-1">Simulated a decentralized swarm robotics system using MATLAB with SLAM algorithms.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-md border">MATLAB</span>
+            <span class="px-2 py-1 rounded-md border">Swarm Robotics</span>
+          </div>
+          <div class="mt-4"><a href="https://github.com/chetanborse1999/multi-robot-debris-detection-mapping" target="_blank" class="underline hover:text-indigo-500">View Project</a></div>
+        </div>
+      </article>
+
+      <article class="card border rounded-2xl overflow-hidden shadow-lift flex flex-col h-full">
+        <img src="img/line-follower.jpg" alt="Line Follower" class="aspect-[16/9] object-cover" loading="lazy" />
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="text-sm muted mb-1">Aug 2021 – Aug 2022</div>
+          <h3 class="font-semibold text-lg">Line Follower AGV (BIT)</h3>
+          <p class="mt-2 text-sm flex-1">Created an automated guided vehicle (AGV) using Arduino for material transport.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-md border">Arduino</span>
+            <span class="px-2 py-1 rounded-md border">Automation</span>
+          </div>
+          <div class="mt-4"><a href="https://yashwanthgowdanm.github.io/line-follower-robot/" target="_blank" class="underline hover:text-indigo-500">View Project</a></div>
+        </div>
+      </article>
+
+      <article class="card border rounded-2xl overflow-hidden shadow-lift flex flex-col h-full">
+        <img src="img/porous-convection.png" alt="Convection" class="aspect-[16/9] object-cover" loading="lazy" />
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="text-sm muted mb-1">Feb 2021 – Aug 2021</div>
+          <h3 class="font-semibold text-lg">Natural Convection in Porous Enclosures (BIT)</h3>
+          <p class="mt-2 text-sm flex-1">Performed thermal analysis with ANSYS to investigate heat transfer in porous enclosures.</p>
+          <div class="mt-4"><a href="https://github.com/yashwanthgowdanm/Effect-of-Inclination-on-Natural-Convection-in-Porous-Enclosures" target="_blank" class="underline hover:text-indigo-500">View Project</a></div>
+        </div>
+      </article>
+      
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-200/60 dark:border-slate-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-center">
+      © <span id="year"></span> Yashwanth Gowda.
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if (saved) root.setAttribute('data-theme', saved);
+      else root.setAttribute('data-theme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.getElementById('themeToggle').addEventListener('click', ()=>{
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

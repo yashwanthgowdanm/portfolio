@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yashwanth Gowda — Home</title>
+  <meta name="description" content="Portfolio of Yashwanth Gowda — Aspiring Robotics Engineer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif !important; -webkit-font-smoothing: antialiased; }
+    :root { --font-numeric: tabular-nums; }
+    .muted { color: #6b7280; }
+    .card { background: rgba(255,255,255,0.7); border-color: rgba(148,163,184,.3); backdrop-filter: blur(10px); }
+    .grad { background-image: linear-gradient(135deg, #6366f1, #06b6d4); }
+    .grad-text { background: linear-gradient(135deg,#6366f1,#06b6d4); -webkit-background-clip:text; background-clip:text; color: transparent; }
+    .navlink { position:relative; opacity:.9; text-decoration: none; }
+    .navlink:hover{ opacity:1; }
+    .navlink:after{ content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background: linear-gradient(90deg,#6366f1,#06b6d4); transition: width .25s ease; }
+    .navlink:hover:after{ width:100%; }
+    .shadow-lift { transition: transform .25s ease, box-shadow .25s ease; }
+    .shadow-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(2,6,23,.15); }
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body { background: #0b0f14; color: #e5e7eb; }
+      .card { background: rgba(15,23,42,0.55); border-color: rgba(51,65,85,.6); }
+      .muted { color: #9ca3af; }
+    }
+    [data-theme="dark"] body { background:#0b0f14; color:#e5e7eb; }
+    [data-theme="dark"] .card { background: rgba(15,23,42,0.55); border-color: rgba(51,65,85,.6); }
+    [data-theme="dark"] .muted { color:#9ca3af; }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="font-semibold tracking-tight grad-text">YASHWANTH GOWDA</a>
+      <nav class="hidden lg:flex items-center gap-5 text-sm font-medium">
+        <a href="index.html" class="navlink font-bold text-indigo-500">Home</a>
+        <a href="about.html" class="navlink">About</a>
+        <a href="education.html" class="navlink">Education</a>
+        <a href="experience.html" class="navlink">Experience</a>
+        <a href="projects.html" class="navlink">Projects</a>
+        <a href="personal-projects.html" class="navlink">Personal Projects</a>
+        <a href="skills.html" class="navlink">Skills</a>
+        <a href="contact.html" class="navlink">Contact</a>
+      </nav>
+      <button id="themeToggle" class="text-sm px-3 py-1.5 rounded-xl border card">Toggle theme</button>
+    </div>
+  </header>
+
+  <main class="flex-grow flex items-center">
+    <section class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-[1.3fr,1fr] gap-8 items-center reveal">
+      <div>
+        <h1 class="text-3xl md:text-5xl leading-tight">Hello, I'm <span class="whitespace-nowrap grad-text font-bold">YASHWANTH GOWDA</span></h1>
+        <p class="mt-2 text-lg md:text-xl font-semibold">Aspiring Robotics Engineer</p>
+        <p class="muted mt-3 max-w-2xl">"Engineering the physical. Coding the digital. Securing the invisible."</p>
+        <p class="muted mt-3 max-w-2xl"> A robotics student with roots in mechanical engineering and real-world experience in cybersecurity.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full text-xs border card">Robotics</span>
+          <span class="px-3 py-1 rounded-full text-xs border card">Cybersecurity</span>
+          <span class="px-3 py-1 rounded-full text-xs border card">Mechanical</span>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="projects.html" class="px-4 py-2 rounded-xl text-white grad inline-flex items-center gap-2 shadow-lift">View Projects</a>
+          <a href="contact.html" class="px-4 py-2 rounded-xl border card shadow-lift">Contact Me</a>
+        </div>
+        <ul class="mt-6 flex flex-wrap gap-4 text-sm muted">
+          <li>📍 Tempe, AZ</li>
+          <li>🎓 ASU — RAS (MAE)</li>
+        </ul>
+      </div>
+      <div class="order-first md:order-none flex justify-center">
+        <img src="img/profile.jpg" alt="Portrait" class="w-48 h-48 md:w-72 md:h-72 rounded-2xl object-cover border card shadow-lift" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200/60 dark:border-slate-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-center">
+      © <span id="year"></span> Yashwanth Gowda. <span class="muted">Hosted on GitHub Pages.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const root = document.documentElement;
+      const KEY = 'theme';
+      const saved = localStorage.getItem(KEY);
+      if (saved) root.setAttribute('data-theme', saved);
+      else root.setAttribute('data-theme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.getElementById('themeToggle').addEventListener('click', ()=>{
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(KEY, next);
+      });
+    })();
+  </script>
+</body>
+</html>
