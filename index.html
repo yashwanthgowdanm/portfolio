@@ -4,102 +4,137 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yashwanth Gowda — Home</title>
-  <meta name="description" content="Portfolio of Yashwanth Gowda — Aspiring Robotics Engineer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif !important; -webkit-font-smoothing: antialiased; }
-    :root { --font-numeric: tabular-nums; }
-    .muted { color: #6b7280; }
-    .card { background: rgba(255,255,255,0.7); border-color: rgba(148,163,184,.3); backdrop-filter: blur(10px); }
-    .grad { background-image: linear-gradient(135deg, #6366f1, #06b6d4); }
-    .grad-text { background: linear-gradient(135deg,#6366f1,#06b6d4); -webkit-background-clip:text; background-clip:text; color: transparent; }
-    .navlink { position:relative; opacity:.9; text-decoration: none; }
-    .navlink:hover{ opacity:1; }
-    .navlink:after{ content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background: linear-gradient(90deg,#6366f1,#06b6d4); transition: width .25s ease; }
-    .navlink:hover:after{ width:100%; }
-    .shadow-lift { transition: transform .25s ease, box-shadow .25s ease; }
-    .shadow-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(2,6,23,.15); }
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      body { background: #0b0f14; color: #e5e7eb; }
-      .card { background: rgba(15,23,42,0.55); border-color: rgba(51,65,85,.6); }
-      .muted { color: #9ca3af; }
+    .glass-card { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); }
+    .grad-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .grad-bg { background: linear-gradient(135deg, #6366f1, #06b6d4); }
+    @media (prefers-color-scheme: dark) { 
+      body { background: #0b0f14; color: #f1f5f9; }
+      .glass-card { background: rgba(15, 23, 42, 0.6); border-color: rgba(255, 255, 255, 0.08); } 
+      .muted { color: #94a3b8; }
     }
-    [data-theme="dark"] body { background:#0b0f14; color:#e5e7eb; }
-    [data-theme="dark"] .card { background: rgba(15,23,42,0.55); border-color: rgba(51,65,85,.6); }
-    [data-theme="dark"] .muted { color:#9ca3af; }
+    [data-theme="dark"] body { background: #0b0f14; color: #f1f5f9; }
+    [data-theme="dark"] .glass-card { background: rgba(15, 23, 42, 0.6); border-color: rgba(255, 255, 255, 0.08); }
+    [data-theme="dark"] .muted { color: #94a3b8; }
+    .navlink:hover { color: #6366f1; }
+    .navlink.active { color: #6366f1; font-weight: 700; } /* Active state style */
   </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen selection:bg-indigo-500/30 overflow-x-hidden">
 
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="index.html" class="font-semibold tracking-tight grad-text">YASHWANTH GOWDA</a>
-      <nav class="hidden lg:flex items-center gap-5 text-sm font-medium">
-        <a href="index.html" class="navlink font-bold text-indigo-500">Home</a>
-        <a href="about.html" class="navlink">About</a>
-        <a href="education.html" class="navlink">Education</a>
-        <a href="experience.html" class="navlink">Experience</a>
-        <a href="projects.html" class="navlink">Projects</a>
-        <a href="personal-projects.html" class="navlink">Personal Projects</a>
-        <a href="skills.html" class="navlink">Skills</a>
-        <a href="contact.html" class="navlink">Contact</a>
+  <header class="sticky top-0 z-50 glass-card border-b-0 rounded-b-none !bg-white/80 dark:!bg-slate-900/80 border-b border-slate-200/50 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-bold tracking-tight text-xl grad-text">YASHWANTH GOWDA</a>
+      
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400" id="desktopNav">
+        <a href="index.html" class="navlink transition">Home</a>
+        <a href="about.html" class="navlink transition">About</a>
+        <a href="education.html" class="navlink transition">Education</a>
+        <a href="experience.html" class="navlink transition">Experience</a>
+        <a href="projects.html" class="navlink transition">Projects</a>
+        <a href="personal-projects.html" class="navlink transition">Personal Projects</a>
+        <a href="skills.html" class="navlink transition">Skills</a>
+        <a href="contact.html" class="navlink transition">Contact</a>
       </nav>
-      <button id="themeToggle" class="text-sm px-3 py-1.5 rounded-xl border card">Toggle theme</button>
+
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Theme</button>
+        <button id="menuBtn" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200/50 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-6 flex flex-col gap-4 text-center shadow-2xl absolute top-full left-0 w-full transition-all duration-300 origin-top">
+        <a href="index.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Home</a>
+        <a href="about.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">About</a>
+        <a href="education.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Education</a>
+        <a href="experience.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Experience</a>
+        <a href="projects.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Projects</a>
+        <a href="personal-projects.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Personal Projects</a>
+        <a href="skills.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Skills</a>
+        <a href="contact.html" class="mobile-link text-lg font-medium py-2">Contact</a>
     </div>
   </header>
+  <main class="flex-grow flex items-center justify-center relative">
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
+    <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
 
-  <main class="flex-grow flex items-center">
-    <section class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-[1.3fr,1fr] gap-8 items-center reveal">
+    <section class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-[1.3fr,1fr] gap-12 items-center relative z-10">
       <div>
-        <h1 class="text-3xl md:text-5xl leading-tight">Hello, I'm <span class="whitespace-nowrap grad-text font-bold">YASHWANTH GOWDA</span></h1>
-        <p class="mt-2 text-lg md:text-xl font-semibold">Aspiring Robotics Engineer</p>
-        <p class="muted mt-3 max-w-2xl">"Engineering the physical. Coding the digital. Securing the invisible."</p>
-        <p class="muted mt-3 max-w-2xl"> A robotics student with roots in mechanical engineering and real-world experience in cybersecurity.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full text-xs border card">Robotics</span>
-          <span class="px-3 py-1 rounded-full text-xs border card">Cybersecurity</span>
-          <span class="px-3 py-1 rounded-full text-xs border card">Mechanical</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-900 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+          </span>
+          Open to Work
         </div>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="projects.html" class="px-4 py-2 rounded-xl text-white grad inline-flex items-center gap-2 shadow-lift">View Projects</a>
-          <a href="contact.html" class="px-4 py-2 rounded-xl border card shadow-lift">Contact Me</a>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white">
+          Engineering the <span class="grad-text">Physical.</span><br>
+          Coding the <span class="grad-text">Digital.</span>
+        </h1>
+        <p class="mt-6 text-lg md:text-xl muted max-w-2xl leading-relaxed">
+          Aspiring Robotics Engineer blending <strong>Mechanical Design</strong>, <strong>Automation</strong>, and <strong>Cybersecurity</strong> to build secure, intelligent systems.
+        </p>
+        
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="projects.html" class="px-6 py-3 rounded-xl text-white grad-bg shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition transform hover:-translate-y-1 font-semibold">View Projects</a>
+          <a href="contact.html" class="px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-medium">Contact Me</a>
         </div>
-        <ul class="mt-6 flex flex-wrap gap-4 text-sm muted">
-          <li>📍 Tempe, AZ</li>
-          <li>🎓 ASU — RAS (MAE)</li>
-        </ul>
+        
+        <div class="mt-10 flex flex-wrap gap-4 text-sm muted font-medium">
+          <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Tempe, AZ</span>
+          <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg> ASU — RAS (MAE)</span>
+        </div>
       </div>
-      <div class="order-first md:order-none flex justify-center">
-        <img src="img/profile.jpg" alt="Portrait" class="w-48 h-48 md:w-72 md:h-72 rounded-2xl object-cover border card shadow-lift" />
+      
+      <div class="order-first md:order-none flex justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-cyan-500 rounded-[2rem] blur-2xl opacity-20 transform rotate-6 scale-90"></div>
+        <img src="img/profile.jpg" alt="Portrait" class="relative w-64 h-64 md:w-80 md:h-80 rounded-[2rem] object-cover border-[6px] border-white/50 dark:border-white/10 shadow-2xl rotate-3 hover:rotate-0 transition duration-500" />
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-slate-200/60 dark:border-slate-800 mt-auto">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-center">
-      © <span id="year"></span> Yashwanth Gowda. <span class="muted">Hosted on GitHub Pages.</span>
-    </div>
+  <footer class="border-t border-slate-200/50 dark:border-slate-800 py-6 text-center text-sm muted">
+    © <span id="year"></span> Yashwanth Gowda.
   </footer>
 
   <script>
+    // 1. Year Update
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 2. Theme Toggle
     (function(){
       const root = document.documentElement;
-      const KEY = 'theme';
-      const saved = localStorage.getItem(KEY);
+      const saved = localStorage.getItem('theme');
       if (saved) root.setAttribute('data-theme', saved);
       else root.setAttribute('data-theme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.getElementById('themeToggle').addEventListener('click', ()=>{
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
+        localStorage.setItem('theme', next);
       });
     })();
+
+    // 3. Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 4. Auto-Highlight Active Link
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const navLinks = document.querySelectorAll('.navlink, .mobile-link');
+    navLinks.forEach(link => {
+      if(link.getAttribute('href') === currentPath) {
+        link.classList.add('active', 'text-indigo-500', 'font-bold', 'dark:text-indigo-400');
+      }
+    });
   </script>
-</body>
+  </body>
 </html>
