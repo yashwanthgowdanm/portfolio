@@ -61,20 +61,49 @@
 
   <main class="max-w-6xl mx-auto px-4 py-16 flex-grow">
     
-    <div class="mb-20">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 shadow-lg shadow-indigo-500/20"></div>
-        <h2 class="text-3xl md:text-4xl font-bold grad-text">Robotics Simulations</h2>
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="h-[3px] w-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></span>
+        <span class="text-sm font-bold tracking-widest text-indigo-500 uppercase">
+          Innovation & Build
+        </span>
       </div>
-      
-      <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"> Personal Projects </h1>
+    </div>
+
+    <section class="mb-24">
+      <div class="flex items-center gap-4 mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center text-indigo-500">
+           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        </div>
+        <div>
+           <h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">Robotics & Simulations</h2>
+           <p class="text-sm muted mt-1">Autonomous Systems, Control Theory, and MATLAB modeling.</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-8">
+        
+        <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
+          <div class="h-56 overflow-hidden">
+            <img src="img/SolarMPC.png" alt="Hierarchical MPC Architecture" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Hierarchical MPC: Solar Irrigation</h3>
+            <p class="mt-2 text-sm muted leading-relaxed">A dual-loop control architecture for off-grid solar irrigation. Features an Outer Loop MPC fused with Penman-Monteith logic and an Inner Loop Adaptive PI controller.</p>
+            <div class="mt-4">
+              <a href="#" target="_blank" class="text-sm font-semibold text-indigo-500 hover:text-indigo-400 inline-flex items-center gap-1">View Project &rarr;</a>
+            </div>
+          </div>
+        </article>
+        
         <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
           <div class="h-56 overflow-hidden">
             <img src="img/Pitch_Curator.jpg" alt="Pitch Curator" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" />
           </div>
           <div class="p-6">
             <h3 class="font-bold text-lg text-slate-900 dark:text-white">Autonomous Pitch Curator</h3>
-            <p class="mt-2 text-sm muted leading-relaxed">A high-fidelity MATLAB simulation of an autonomous rover for precision cricket pitch maintenance. Features stochastic defect detection, coverage-optimized Boustrophedon path planning, and a smart "inspect-and-repair" protocol.</p>
+            <p class="mt-2 text-sm muted leading-relaxed">High-fidelity MATLAB simulation of a rover for cricket pitch maintenance. Features stochastic defect detection and coverage-optimized path planning.</p>
             <div class="mt-4"><a href="https://github.com/yashwanthgowdanm/pitch_curator_sim" target="_blank" class="text-sm font-semibold text-indigo-500 hover:text-indigo-400 inline-flex items-center gap-1">View Code &rarr;</a></div>
           </div>
         </article>
@@ -85,7 +114,7 @@
           </div>
           <div class="p-6">
             <h3 class="font-bold text-lg text-slate-900 dark:text-white">FloraBot: Bio-Mimetic Agent</h3>
-            <p class="mt-2 text-sm muted leading-relaxed">A high-fidelity MATLAB simulation of a robotic plant agent that uses Affective Computing to communicate biological needs. Features species-specific metabolic modeling (Snake Plant vs. Peace Lily), autonomous self-charging logic, and a priority-based FSM that simulates survival instincts.</p>
+            <p class="mt-2 text-sm muted leading-relaxed">Robotic plant agent simulation using Affective Computing. Features metabolic modeling, self-charging logic, and priority-based survival instincts.</p>
             <div class="mt-4"><a href="https://github.com/yashwanthgowdanm/florabot_sim" target="_blank" class="text-sm font-semibold text-indigo-500 hover:text-indigo-400 inline-flex items-center gap-1">View Code &rarr;</a></div>
           </div>
         </article>
@@ -96,63 +125,69 @@
           </div>
           <div class="p-6">
             <h3 class="font-bold text-lg text-slate-900 dark:text-white">BeachCrab</h3>
-            <p class="mt-2 text-sm muted leading-relaxed">MATLAB-based simulation of an autonomous beach-cleaning robot. Features a Klann Linkage mechanism for locomotion, reactive obstacle avoidance, and a 4-bar linkage scoop for debris collection.</p>
+            <p class="mt-2 text-sm muted leading-relaxed">Simulation of an autonomous beach-cleaning robot. Features a Klann Linkage mechanism for locomotion and 4-bar linkage scoop.</p>
             <div class="mt-4"><a href="https://github.com/yashwanthgowdanm/BeachCrab" target="_blank" class="text-sm font-semibold text-indigo-500 hover:text-indigo-400 inline-flex items-center gap-1">View Code &rarr;</a></div>
           </div>
         </article>
       </div>
-    </div>
+    </section>
 
-    <div>
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 shadow-lg shadow-indigo-500/20"></div>
-        <h2 class="text-3xl md:text-4xl font-bold grad-text">Web & Software</h2>
+    <section>
+      <div class="flex items-center gap-4 mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 flex items-center justify-center text-cyan-500">
+           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+        </div>
+        <div>
+           <h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">Web & Software</h2>
+           <p class="text-sm muted mt-1">Demonstrated Applications, Static Sites, and Growth Tools.</p>
+        </div>
       </div>
       
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
           <div class="h-48 overflow-hidden"><img src="img/lifeflow.png" alt="LifeFlow" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" /></div>
           <div class="p-5"><h3 class="font-bold text-lg">LifeFlow</h3>
-            <p class="mt-1 text-sm muted">A blood donation hub that connects donors and recipients seamlessly. LifeFlow helps users find donation opportunities, respond to requests, and spread awareness about regular blood donation.</p>
+            <p class="mt-1 text-sm muted">A blood donation hub connecting donors and recipients seamlessly.</p>
             <div class="mt-3"><a href="https://yashwanthgowdanm.github.io/lifeflow-static-demo-webapp/" target="_blank" class="text-sm text-indigo-500 font-medium">View Demo App</a></div></div>
         </article>
 
         <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
           <div class="h-48 overflow-hidden"><img src="img/kisanmitra.png" alt="Kisan Mitra" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" /></div>
           <div class="p-5"><h3 class="font-bold text-lg">Kisan Mitra</h3>
-            <p class="mt-1 text-sm muted">A farmer-focused web app providing crop guidance, resources, and agricultural information. It empowers rural communities with digital tools for productivity and sustainability.</p>
+            <p class="mt-1 text-sm muted">Farmer-focused web app providing crop guidance and resources.</p>
             <div class="mt-3"><a href="https://yashwanthgowdanm.github.io/kisan-mitra-demo-webapp/" target="_blank" class="text-sm text-indigo-500 font-medium">View Demo App</a></div></div>
         </article>
 
         <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
           <div class="h-48 overflow-hidden"><img src="img/solosphere.png" alt="Solosphere" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" /></div>
           <div class="p-5"><h3 class="font-bold text-lg">Solosphere</h3>
-            <p class="mt-1 text-sm muted">Solosphere is a sleek static web app designed for solo travelers seeking authentic local experiences, hygienic food options, and unique activities.</p>
+            <p class="mt-1 text-sm muted">Sleek static web app for solo travelers seeking authentic experiences.</p>
             <div class="mt-3"><a href="https://yashwanthgowdanm.github.io/solosphere-demo-webapp/" target="_blank" class="text-sm text-indigo-500 font-medium">View Demo App</a></div></div>
         </article>
 
         <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
           <div class="h-48 overflow-hidden"><img src="img/grocify.png" alt="Grocify" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" /></div>
           <div class="p-5"><h3 class="font-bold text-lg">Grocify</h3>
-            <p class="mt-1 text-sm muted">A smart grocery shopping assistant that helps users create and manage lists, track items, and plan purchases with a user-friendly interface.</p>
+            <p class="mt-1 text-sm muted">Smart grocery shopping assistant for managing lists and planning.</p>
             <div class="mt-3"><a href="https://yashwanthgowdanm.github.io/grocify-static-demo-webapp/" target="_blank" class="text-sm text-indigo-500 font-medium">View Demo App</a></div></div>
         </article>
 
         <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
           <div class="h-48 overflow-hidden"><img src="img/yt-growth.png" alt="YT Growth" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" /></div>
           <div class="p-5"><h3 class="font-bold text-lg">YouTube Growth Calc</h3>
-            <p class="mt-1 text-sm muted">Java application to calculate future subscriber counts. Helps channel owners track growth and improve content strategy by considering growth rates and time intervals.</p>
+            <p class="mt-1 text-sm muted">Java app to calculate future subscriber counts and growth rates.</p>
             <div class="mt-3"><a href="https://yashwanthgowdanm.github.io/yt-subs-growth/" target="_blank" class="text-sm text-indigo-500 font-medium">View App</a></div></div>
         </article>
 
         <article class="glass-card rounded-3xl overflow-hidden project-card transition-all duration-300">
           <div class="h-48 overflow-hidden"><img src="img/ig-growth.png" alt="IG Growth" class="project-img w-full h-full object-cover transition-transform duration-700" loading="lazy" /></div>
           <div class="p-5"><h3 class="font-bold text-lg">IG Growth Calc</h3>
-            <p class="mt-1 text-sm muted">Java-based tool to determine Instagram follower growth rate. Considers current followers, unfollowers per month, and posts per month to derive accurate growth metrics.</p>
+            <p class="mt-1 text-sm muted">Java tool to determine Instagram follower growth rate metrics.</p>
             <div class="mt-3"><a href="https://yashwanthgowdanm.github.io/ig-growth-calc-est/" target="_blank" class="text-sm text-indigo-500 font-medium">View App</a></div></div>
         </article>
       </div>
-    </div>
+    </section>
+
   </main>
 
   <footer class="border-t border-slate-200/50 dark:border-slate-800 py-6 text-center text-sm muted">
