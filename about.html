@@ -3,25 +3,139 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yashwanth Gowda — About</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <title>About — Yashwanth Gowda | Robotics Engineer, ASU</title>
+  <meta name="description" content="MS Robotics engineer from ASU with BEng Mechanical Engineering. ROS2, SLAM, PyTorch, CATIA V5, ANSYS. GRC internship experience. STEM OPT eligible.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* ── Base ── */
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif !important; -webkit-font-smoothing: antialiased; }
-    .glass-card { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .grad-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    @media (prefers-color-scheme: dark) { 
-      body { background: #0b0f14; color: #f1f5f9; }
-      .glass-card { background: rgba(15, 23, 42, 0.6); border-color: rgba(255, 255, 255, 0.08); } 
-      .muted { color: #94a3b8; }
+
+    /* ── Color Tokens ── */
+    :root {
+      --accent:        #2563eb;   /* royal blue — primary CTA, links, highlights */
+      --accent-light:  #3b82f6;   /* lighter blue for hover states */
+      --accent-glow:   rgba(37, 99, 235, 0.15);
+      --grad-start:    #1e3a5f;   /* deep navy */
+      --grad-end:      #2563eb;   /* royal blue */
+      --bg:            #f8fafc;   /* near-white, slightly cool */
+      --surface:       rgba(255,255,255,0.75);
+      --border:        rgba(203,213,225,0.6);
+      --text:          #0f172a;   /* slate-950 */
+      --muted:         #475569;   /* slate-600 */
     }
-    [data-theme="dark"] body { background: #0b0f14; color: #f1f5f9; }
-    [data-theme="dark"] .glass-card { background: rgba(15, 23, 42, 0.6); border-color: rgba(255, 255, 255, 0.08); }
-    [data-theme="dark"] .muted { color: #94a3b8; }
-    .navlink:hover { color: #6366f1; }
-    .navlink.active { color: #6366f1; font-weight: 700; }
-    .glass-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1); }
+
+    [data-theme="dark"] {
+      --bg:            #080d14;   /* near-black, deep navy tint */
+      --surface:       rgba(10, 18, 35, 0.75);
+      --border:        rgba(255,255,255,0.07);
+      --text:          #e2e8f0;
+      --muted:         #7a90a8;
+      --accent-glow:   rgba(37, 99, 235, 0.25);
+    }
+
+    /* ── Background ── */
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Subtle grid pattern */
+    .bg-grid-pattern {
+      background-image:
+        linear-gradient(to right, rgba(37,99,235,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(37,99,235,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    [data-theme="dark"] .bg-grid-pattern {
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    }
+
+    /* ── Glass Card ── */
+    .glass-card {
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .glass-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px -8px rgba(0,0,0,0.12);
+    }
+    [data-theme="dark"] .glass-card:hover {
+      box-shadow: 0 12px 40px -8px rgba(0,0,0,0.5);
+    }
+
+    /* ── Gradient Text ── */
+    .grad-text {
+      background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    [data-theme="dark"] .grad-text {
+      background: linear-gradient(135deg, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ── Gradient Background ── */
+    .grad-bg {
+      background: linear-gradient(135deg, #1e3a5f, #2563eb);
+    }
+
+    /* ── Muted Text ── */
+    .muted { color: var(--muted); }
+
+    /* ── Nav ── */
+    .navlink:hover  { color: var(--accent); }
+    .navlink.active { color: var(--accent); font-weight: 700; }
+
+    /* ── Header surface ── */
+    header {
+      background: rgba(248,250,252,0.85) !important;
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="dark"] header {
+      background: rgba(8,13,20,0.88) !important;
+    }
+
+    /* ── Accent utilities ── */
+    .text-accent   { color: var(--accent); }
+    .border-accent { border-color: var(--accent); }
+    .bg-accent-glow { background: var(--accent-glow); }
+
+    /* ── Ping dot (open to work badge) ── */
+    .ping-dot { position: relative; display: inline-flex; height: 10px; width: 10px; }
+    .ping-dot span { position: absolute; display: inline-flex; width: 100%; height: 100%; border-radius: 50%; background-color: #22c55e; opacity: 0.75; animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite; }
+    .ping-dot .dot { position: relative; display: inline-flex; height: 10px; width: 10px; border-radius: 50%; background-color: #22c55e; }
+    @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+
+    /* ── Social links (contact page) ── */
+    .social-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-radius: 0.75rem; transition: all 0.2s; border: 1px solid transparent; }
+    .social-link:hover { background: var(--accent-glow); border-color: rgba(37,99,235,0.25); transform: translateY(-2px); }
+
+    /* ── Timeline (experience page) ── */
+    .timeline-line { background: linear-gradient(to bottom, #1e3a5f, #2563eb, transparent); }
+
+    /* ── Skill badge ── */
+    .skill-badge { display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; }
+    .skill-badge:hover { transform: translateY(-2px); }
+
+    /* ── Project card ── */
+    .project-card:hover .project-img { transform: scale(1.05); }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -5px rgba(0,0,0,0.12); }
+    [data-theme="dark"] .project-card:hover { box-shadow: 0 15px 30px -5px rgba(0,0,0,0.5); }
+
+    /* ── Education hero card ── */
+    .hero-card { border: 1px solid rgba(37,99,235,0.2); }
+    .hero-card:hover { border-color: rgba(37,99,235,0.45); box-shadow: 0 0 30px rgba(37,99,235,0.1); }
   </style>
 </head>
 <body class="flex flex-col min-h-screen selection:bg-indigo-500/30">
@@ -31,7 +145,7 @@
       <a href="index.html" class="font-bold tracking-tight text-xl grad-text">YASHWANTH GOWDA</a>
       <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
         <a href="index.html" class="navlink transition">Home</a>
-        <a href="about.html" class="navlink active transition">About</a>
+        <a href="about.html" class="navlink transition">About</a>
         <a href="education.html" class="navlink transition">Education</a>
         <a href="experience.html" class="navlink transition">Experience</a>
         <a href="projects.html" class="navlink transition">Projects</a>
@@ -42,109 +156,153 @@
       <div class="flex items-center gap-2">
         <button id="themeToggle" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Theme</button>
         <button id="menuBtn" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
-           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
-    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200/50 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-6 flex flex-col gap-4 text-center shadow-2xl absolute top-full left-0 w-full transition-all duration-300 origin-top">
-        <a href="index.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Home</a>
-        <a href="about.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">About</a>
-        <a href="education.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Education</a>
-        <a href="experience.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Experience</a>
-        <a href="projects.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Projects</a>
-        <a href="personal-projects.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Personal Projects</a>
-        <a href="skills.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Skills</a>
-        <a href="contact.html" class="mobile-link text-lg font-medium py-2">Contact</a>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200/50 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-6 flex flex-col gap-4 text-center shadow-2xl absolute top-full left-0 w-full">
+      <a href="index.html"           class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Home</a>
+      <a href="about.html"           class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">About</a>
+      <a href="education.html"       class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Education</a>
+      <a href="experience.html"      class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Experience</a>
+      <a href="projects.html"        class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Projects</a>
+      <a href="personal-projects.html" class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Personal Projects</a>
+      <a href="skills.html"          class="mobile-link text-lg font-medium py-2 border-b border-slate-100 dark:border-slate-800">Skills</a>
+      <a href="contact.html"         class="mobile-link text-lg font-medium py-2">Contact</a>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-16 flex-grow">
-    
     <div class="mb-12">
-    <div class="flex items-center gap-3 mb-3">
-      <span class="h-[3px] w-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></span>
-      <span class="text-sm font-bold tracking-widest text-indigo-500 uppercase"> A Short Intro </span>
-    </div>
-    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">About Me  </h1>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="h-[3px] w-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></span>
+        <span class="text-sm font-bold tracking-widest text-indigo-500 uppercase">Engineering Profile</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">About Me</h1>
     </div>
 
     <div class="grid lg:grid-cols-[1.5fr,1fr] gap-10 items-start">
-      
-      <div class="glass-card rounded-3xl p-8 md:p-10 relative overflow-hidden">
-        <div class="absolute top-4 right-6 text-8xl opacity-5 font-serif text-indigo-500 select-none">”</div>
-        
-        <div class="space-y-6 text-lg leading-relaxed muted">
+
+      <!-- Main Bio -->
+      <div class="space-y-6">
+        <div class="glass-card rounded-3xl p-8 md:p-10 relative overflow-hidden">
+          <div class="absolute top-4 right-6 text-8xl opacity-5 font-serif text-indigo-500 select-none">"</div>
+          <div class="space-y-5 text-lg leading-relaxed muted">
           <p>
-            I am an aspiring <strong class="text-slate-700 dark:text-slate-200">Robotics Engineer</strong> with a strong foundation in mechanical engineering and a cross-disciplinary mindset that spans automation, control systems, and cybersecurity. Currently, I am upgrading my expertise with a <strong class="text-indigo-500">Master's in Robotics and Autonomous Systems</strong> at Arizona State University (Expected May 2026), following my Bachelor's in Mechanical Engineering from Bangalore Institute of Technology.
-          </p>
-          
-          <p>
-            My technical proficiency covers the full robotics stack. I am proficient in <strong class="text-slate-700 dark:text-slate-200">CAD/CAM and Mechanical Simulation</strong> (SolidWorks, CATIA V5, ANSYS) as well as <strong class="text-slate-700 dark:text-slate-200">Programming and Control</strong> (ROS 2, Python, C++, MATLAB, Simulink). This skillset allows me to engineer physical systems while writing the intelligent software that drives them.
-          </p>
-          
-          <p>
-            My professional experience is uniquely diverse. As a <strong class="text-slate-700 dark:text-slate-200">Cybersecurity GRC Intern at CyRAACS</strong>, I implemented ISO 27001 protocols and reduced threat exposure by 50%, giving me a rare perspective on securing industrial systems. Prior to that, I worked as a <strong class="text-slate-700 dark:text-slate-200">Mechanical Design Intern at GTTC</strong>, optimizing 3D models and reducing design flaws by 30% through FEA. I also gained software development experience at IC Solutions, where I built data-driven analytics tools using Java(OOPs).
+            I am an engineering graduate student focused on robotics, autonomous systems, simulation, hardware integration, and security-aware system design.
           </p>
 
           <p>
-            I apply this knowledge through rigorous academic projects. With teams, I have designed <strong class="text-slate-700 dark:text-slate-200">Autonomous warehouse robot</strong> using multi-sensor fusion, developed solar irrigation controllers with MATLAB that achieved 60% faster rise times, developed debris detection with swarm robots, and engineered unsupervised anomaly detection frameworks for rocket engines using hybrid LSTM-GANs.
+            I am completing my <strong class="text-indigo-500">MS in Robotics and Autonomous Systems</strong> at Arizona State University, graduating in May 2026. My strongest technical focus is robotics: ROS2, SLAM, Nav2, control systems, multi-sensor fusion, dexterous manipulation, machine learning for robotics, and the transition from simulation to physical deployment.
           </p>
 
           <p>
-            I am actively seeking summer internships and full-time roles in <strong class="text-indigo-500">industrial robotics, automated vehicles, and controls engineering</strong> where I can leverage my diverse background to build secure and efficient autonomous systems.
+            At Prof. Zhe Xu's Robotics Lab at ASU, I work on the TetherIA Aero Hand, a 7-DOF tendon-driven robotic hand integrated with a Stretch3 mobile manipulator. My work includes Python-based ROS2 control architectures, joint-space trajectory planning, hardware communication, and validation across dexterous manipulation tasks such as dice rolling, bottle grasping, card picking, and teleoperation-based manipulation.
           </p>
-        </div>
-      </div>
 
-      <div class="glass-card rounded-3xl p-4 flex flex-col gap-4 sticky top-24 transform transition hover:-translate-y-2 duration-500">
-        <div class="relative rounded-2xl overflow-hidden aspect-[3/4] group">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-          
-          <img src="img/second-profile.jpg" alt="Yashwanth Gowda" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-105" />
-          
-          <div class="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-            <span class="text-white font-bold text-lg">Yashwanth Gowda</span>
+          <p>
+            My academic and independent projects span autonomous warehouse patrolling, swarm robotics, solar irrigation control, rocket engine anomaly detection, embedded AGV development, and thermal simulation. I enjoy work that connects models, simulation, control logic, sensors, and hardware behavior into systems that can be tested and improved.
+          </p>
+
+          <p>
+            Alongside robotics, I also bring a cybersecurity and GRC background from my internship at CyRAACS, where I supported ISO 27001-aligned governance activities, security audits, risk assessment, phishing monitoring, Microsoft Defender 365, KDMARC, SAFEScore.ai, and Infosec IQ workflows. I see this as a useful secondary strength, especially as autonomous systems, robotics platforms, and industrial automation become more connected and security-sensitive.
+          </p>
+
+          <p>
+            My portfolio is mainly centered on robotics and autonomous systems, with cybersecurity as a complementary layer. I am interested in full-time roles across robotics engineering, autonomous systems, controls, automation, systems engineering, robotics software, and selected GRC/security roles.
+          </p>
+          <p>
+            I am <strong class="text-indigo-500">STEM OPT eligible</strong> and open to opportunities in the United States, India, and remote/hybrid engineering teams.
+          </p>
+           <div class="pt-2 space-y-1 text-base">
+              <p><strong>Email:</strong> <a href="mailto:yashgangatkar@gmail.com" class="text-indigo-500 hover:underline">yashgangatkar@gmail.com</a></p>
+              <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nmyashwanthgowda" target="_blank" class="text-indigo-500 hover:underline">linkedin.com/in/nmyashwanthgowda</a></p>
+              <p><strong>GitHub:</strong> <a href="https://github.com/yashwanthgowdanm" target="_blank" class="text-indigo-500 hover:underline">github.com/yashwanthgowdanm</a></p>
+            </div> 
           </div>
         </div>
-        
-        <div class="p-2">
-          <h3 class="font-bold text-slate-800 dark:text-white mb-3 px-2 flex items-center gap-2">
-            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            Community Service &amp; Volunteering
-          </h3>
-          <ul class="space-y-3">
-             <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-               <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0"></div>
-               <div>
-                 <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">ISSC Volunteer</span>
-                 <span class="block text-xs muted mt-0.5">Arizona State University<br>Sep 2024 – Present </span>
-               </div>
-             </li>
-             <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-               <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500 shrink-0"></div>
-               <div>
-                 <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">SW Robotics Symposium</span>
-                 <span class="block text-xs muted mt-0.5">Event Volunteer<br>Oct – Nov 2024 </span>
-               </div>
-             </li>
-             <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-               <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></div>
-               <div>
-                 <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">BIT Language Festivals</span>
-                 <span class="block text-xs muted mt-0.5">Event Volunteer and Coordinator<br>2018 – 2021 </span>
-               </div>
-             </li>
-          </ul>
-        </div>
       </div>
 
+      <!-- Right Column -->
+      <div class="space-y-6 sticky top-24">
+        <div class="glass-card rounded-3xl p-4 flex flex-col gap-4 transform transition hover:-translate-y-2 duration-500">
+          <div class="relative rounded-2xl overflow-hidden aspect-[3/4] group">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+            <img src="img/second-profile.jpg" alt="Yashwanth Gowda" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-105" />
+            <div class="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+              <span class="text-white font-bold text-lg">Yashwanth Gowda</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Volunteering -->
+        <div class="glass-card rounded-3xl p-6">
+          <h3 class="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            Community &amp; Volunteering
+          </h3>
+            <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500 shrink-0"></div>
+              <div>
+                <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">Volunteer — International Students &amp; Scholars Center</span>
+                <span class="block text-xs muted mt-0.5">Arizona State University · Jun 2025 – May 2026</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></div>
+              <div>
+                <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">Volunteer — Southwest Robotics Symposium (SWRS) 2024</span>
+                <span class="block text-xs muted mt-0.5">Ira A. Fulton Schools of Engineering, ASU · Oct – Nov 2024</span>
+              </div>
+            </li>
+            <ul class="space-y-3">
+            <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0"></div>
+              <div>
+                <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">Social Impact Volunteer</span>
+                <span class="block text-xs muted mt-0.5">Cognition — Social Innovation &amp; Research Centre, Bengaluru<br>May 2021 – May 2022</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></div>
+              <div>
+                <span class="block text-sm font-semibold text-slate-700 dark:text-slate-200">Event Coordinator / Backstage — BIT Festivals</span>
+                <span class="block text-xs muted mt-0.5">Kannada Kalarava (2018, 2020, 2021) &amp; Manthan (2019)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Languages -->
+        <div class="glass-card rounded-3xl p-6">
+          <h3 class="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+            Languages
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300">English — Professional</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300">Kannada — Native</span>
+            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300">Hindi — Fluent</span>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
   <footer class="border-t border-slate-200/50 dark:border-slate-800 py-6 text-center text-sm muted">
-    © <span id="year"></span> Yashwanth Gowda.
+    <div class="flex items-center justify-center gap-5 mb-3">
+      <a href="https://www.linkedin.com/in/nmyashwanthgowda" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-slate-400 hover:text-indigo-500 transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.329-.025-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.351V9h3.414v1.561h.047c.476-.9 1.637-1.852 3.367-1.852 3.6 0 4.265 2.37 4.265 5.452v6.291zM5.337 7.433a2.063 2.063 0 112.063-2.063 2.064 2.064 0 01-2.063 2.063zM7.114 20.452H3.56V9h3.554z"/></svg>
+      </a>
+      <a href="https://github.com/yashwanthgowdanm" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-400 hover:text-indigo-500 transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5 0 6.23 0 12.53c0 5.3 3.44 9.79 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.07-.02-2.1-3.34.73-4.04-1.63-4.04-1.63-.55-1.39-1.34-1.76-1.34-1.76-1.09-.76.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.84 2.79 1.31 3.47 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.98 0-1.32.47-2.4 1.24-3.25-.12-.3-.54-1.52.12-3.16 0 0 1.01-.33 3.31 1.24.96-.27 1.98-.4 3-.41 1.02 0 2.04.14 3 .41 2.3-1.57 3.31-1.24 3.31-1.24.66 1.64.24 2.86.12 3.16.77.85 1.24 1.93 1.24 3.25 0 4.65-2.8 5.68-5.48 5.98.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.7.83.58C20.56 22.32 24 17.83 24 12.53 24 6.23 18.27.5 12 .5z"/></svg>
+      </a>
+      <a href="mailto:yashgangatkar@gmail.com" aria-label="Email" class="text-slate-400 hover:text-indigo-500 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </a>
+    </div>
+    © <span id="year"></span> Yashwanth Gowda &nbsp;·&nbsp; Tempe, Arizona
   </footer>
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
@@ -152,21 +310,19 @@
       const saved = localStorage.getItem('theme');
       if (saved) root.setAttribute('data-theme', saved);
       else root.setAttribute('data-theme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.getElementById('themeToggle').addEventListener('click', ()=>{
+      document.getElementById('themeToggle').addEventListener('click', () => {
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
       });
     })();
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-    const currentPath = window.location.pathname.split("/").pop() || "index.html";
-    document.querySelectorAll('.navlink, .mobile-link').forEach(link => {
-      if(link.getAttribute('href') === currentPath) { link.classList.add('active', 'text-indigo-500', 'font-bold', 'dark:text-indigo-400'); }
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlink, .mobile-link').forEach(l => {
+      if (l.getAttribute('href') === currentPath) l.classList.add('active','text-indigo-500','font-bold','dark:text-indigo-400');
     });
   </script>
 </body>
-
 </html>
-

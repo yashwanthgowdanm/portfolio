@@ -7,22 +7,134 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* ── Base ── */
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif !important; -webkit-font-smoothing: antialiased; }
-    .glass-card { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .grad-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    @media (prefers-color-scheme: dark) { 
-      body { background: #0b0f14; color: #f1f5f9; }
-      .glass-card { background: rgba(15, 23, 42, 0.6); border-color: rgba(255, 255, 255, 0.08); } 
-      .muted { color: #94a3b8; }
+
+    /* ── Color Tokens ── */
+    :root {
+      --accent:        #2563eb;   /* royal blue — primary CTA, links, highlights */
+      --accent-light:  #3b82f6;   /* lighter blue for hover states */
+      --accent-glow:   rgba(37, 99, 235, 0.15);
+      --grad-start:    #1e3a5f;   /* deep navy */
+      --grad-end:      #2563eb;   /* royal blue */
+      --bg:            #f8fafc;   /* near-white, slightly cool */
+      --surface:       rgba(255,255,255,0.75);
+      --border:        rgba(203,213,225,0.6);
+      --text:          #0f172a;   /* slate-950 */
+      --muted:         #475569;   /* slate-600 */
     }
-    [data-theme="dark"] body { background: #0b0f14; color: #f1f5f9; }
-    [data-theme="dark"] .glass-card { background: rgba(15, 23, 42, 0.6); border-color: rgba(255, 255, 255, 0.08); }
-    [data-theme="dark"] .muted { color: #94a3b8; }
-    .navlink:hover { color: #6366f1; }
-    .navlink.active { color: #6366f1; font-weight: 700; }
+
+    [data-theme="dark"] {
+      --bg:            #080d14;   /* near-black, deep navy tint */
+      --surface:       rgba(10, 18, 35, 0.75);
+      --border:        rgba(255,255,255,0.07);
+      --text:          #e2e8f0;
+      --muted:         #7a90a8;
+      --accent-glow:   rgba(37, 99, 235, 0.25);
+    }
+
+    /* ── Background ── */
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Subtle grid pattern */
+    .bg-grid-pattern {
+      background-image:
+        linear-gradient(to right, rgba(37,99,235,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(37,99,235,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    [data-theme="dark"] .bg-grid-pattern {
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    }
+
+    /* ── Glass Card ── */
+    .glass-card {
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .glass-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px -8px rgba(0,0,0,0.12);
+    }
+    [data-theme="dark"] .glass-card:hover {
+      box-shadow: 0 12px 40px -8px rgba(0,0,0,0.5);
+    }
+
+    /* ── Gradient Text ── */
+    .grad-text {
+      background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    [data-theme="dark"] .grad-text {
+      background: linear-gradient(135deg, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ── Gradient Background ── */
+    .grad-bg {
+      background: linear-gradient(135deg, #1e3a5f, #2563eb);
+    }
+
+    /* ── Muted Text ── */
+    .muted { color: var(--muted); }
+
+    /* ── Nav ── */
+    .navlink:hover  { color: var(--accent); }
+    .navlink.active { color: var(--accent); font-weight: 700; }
+
+    /* ── Header surface ── */
+    header {
+      background: rgba(248,250,252,0.85) !important;
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="dark"] header {
+      background: rgba(8,13,20,0.88) !important;
+    }
+
+    /* ── Accent utilities ── */
+    .text-accent   { color: var(--accent); }
+    .border-accent { border-color: var(--accent); }
+    .bg-accent-glow { background: var(--accent-glow); }
+
+    /* ── Ping dot (open to work badge) ── */
+    .ping-dot { position: relative; display: inline-flex; height: 10px; width: 10px; }
+    .ping-dot span { position: absolute; display: inline-flex; width: 100%; height: 100%; border-radius: 50%; background-color: #22c55e; opacity: 0.75; animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite; }
+    .ping-dot .dot { position: relative; display: inline-flex; height: 10px; width: 10px; border-radius: 50%; background-color: #22c55e; }
+    @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+
+    /* ── Social links (contact page) ── */
+    .social-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-radius: 0.75rem; transition: all 0.2s; border: 1px solid transparent; }
+    .social-link:hover { background: var(--accent-glow); border-color: rgba(37,99,235,0.25); transform: translateY(-2px); }
+
+    /* ── Timeline (experience page) ── */
+    .timeline-line { background: linear-gradient(to bottom, #1e3a5f, #2563eb, transparent); }
+
+    /* ── Skill badge ── */
+    .skill-badge { display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; }
+    .skill-badge:hover { transform: translateY(-2px); }
+
+    /* ── Project card ── */
     .project-card:hover .project-img { transform: scale(1.05); }
-    .project-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1); }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -5px rgba(0,0,0,0.12); }
+    [data-theme="dark"] .project-card:hover { box-shadow: 0 15px 30px -5px rgba(0,0,0,0.5); }
+
+    /* ── Education hero card ── */
+    .hero-card { border: 1px solid rgba(37,99,235,0.2); }
+    .hero-card:hover { border-color: rgba(37,99,235,0.45); box-shadow: 0 0 30px rgba(37,99,235,0.1); }
   </style>
 </head>
 <body class="flex flex-col min-h-screen selection:bg-indigo-500/30">
@@ -65,10 +177,11 @@
       <div class="flex items-center gap-3 mb-3">
         <span class="h-[3px] w-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></span>
         <span class="text-sm font-bold tracking-widest text-indigo-500 uppercase">
-          Innovation & Build
+          Independent Builds
         </span>
       </div>
       <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"> Personal Projects </h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400">A collection of my independent projects and experiments.</p>
     </div>
 
     <section class="mb-24">
@@ -78,7 +191,7 @@
         </div>
         <div>
            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">Robotics & Simulations</h2>
-           <p class="text-sm muted mt-1">Autonomous Systems, Control Theory, and MATLAB modeling.</p>
+           <p class="text-sm muted mt-1">Robotics simulations, control architectures, path planning, and system modeling.</p>
         </div>
       </div>
 
@@ -148,7 +261,7 @@
         </div>
         <div>
            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">Cybersecurity & AI</h2>
-           <p class="text-sm muted mt-1">Endpoint Defense, Anomaly Detection, and Threat Research.</p>
+           <p class="text-sm muted mt-1">Security automation, anomaly detection, phishing defense, and applied AI.</p>
         </div>
       </div>
 
@@ -160,7 +273,7 @@
           </div>
           <div class="p-6">
             <h3 class="font-bold text-lg text-slate-900 dark:text-white">DeepDrift: Zero-Day EDR</h3>
-            <p class="mt-2 text-sm muted leading-relaxed">Unsupervised Deep Learning engine detecting ransomware and exfiltration via behavioral drift. Features Explainable AI (XAI) for transparent alert analysis.</p>
+            <p class="mt-2 text-sm muted leading-relaxed">A Python-based SOAR prototype for ingesting identity-related logs and automating responses to password spraying, MFA fatigue, and impossible-travel scenarios using rule-based and geolocation-aware logic.</p>
             <div class="mt-4">
                 <a href="https://github.com/yashwanthgowdanm/DeepDrift-EDR" target="_blank" class="text-sm font-semibold text-rose-500 hover:text-rose-400 inline-flex items-center gap-1">View Code &rarr;</a>
             </div>
@@ -173,7 +286,7 @@
           </div>
           <div class="p-6">
             <h3 class="font-bold text-lg text-slate-900 dark:text-white">Mini-SOAR: Identity Threat Defense</h3>
-            <p class="mt-2 text-sm muted leading-relaxed">A Python-based SOAR engine designed to ingest logs and automate the mitigation of Password Spraying, MFA Fatigue, and Impossible Travel attacks using geokinetic logic.</p>
+            <p class="mt-2 text-sm muted leading-relaxed">A Python-based SOAR prototype for ingesting identity-related logs and automating responses to password spraying, MFA fatigue, and impossible-travel scenarios using rule-based and geolocation-aware logic.</p>
             <div class="mt-4">
               <a href="https://github.com/yashwanthgowdanm/Mini-SOAR" target="_blank" class="text-sm font-semibold text-rose-500 hover:text-rose-400 inline-flex items-center gap-1">View Code &rarr;</a>
             </div>
@@ -254,10 +367,20 @@
     </section>
 
   </main>
-
-  <footer class="border-t border-slate-200/50 dark:border-slate-800 py-6 text-center text-sm muted">
-    © <span id="year"></span> Yashwanth Gowda.
-  </footer>
+    <footer class="border-t border-slate-200/50 dark:border-slate-800 py-6 text-center text-sm muted">
+      <div class="flex items-center justify-center gap-5 mb-3">
+        <a href="https://www.linkedin.com/in/nmyashwanthgowda" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-slate-400 hover:text-indigo-500 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.329-.025-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.351V9h3.414v1.561h.047c.476-.9 1.637-1.852 3.367-1.852 3.6 0 4.265 2.37 4.265 5.452v6.291zM5.337 7.433a2.063 2.063 0 112.063-2.063 2.064 2.064 0 01-2.063 2.063zM7.114 20.452H3.56V9h3.554z"/></svg>
+        </a>
+        <a href="https://github.com/yashwanthgowdanm" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-400 hover:text-indigo-500 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5 0 6.23 0 12.53c0 5.3 3.44 9.79 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.07-.02-2.1-3.34.73-4.04-1.63-4.04-1.63-.55-1.39-1.34-1.76-1.34-1.76-1.09-.76.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.84 2.79 1.31 3.47 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.98 0-1.32.47-2.4 1.24-3.25-.12-.3-.54-1.52.12-3.16 0 0 1.01-.33 3.31 1.24.96-.27 1.98-.4 3-.41 1.02 0 2.04.14 3 .41 2.3-1.57 3.31-1.24 3.31-1.24.66 1.64.24 2.86.12 3.16.77.85 1.24 1.93 1.24 3.25 0 4.65-2.8 5.68-5.48 5.98.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.7.83.58C20.56 22.32 24 17.83 24 12.53 24 6.23 18.27.5 12 .5z"/></svg>
+        </a>
+        <a href="mailto:yashgangatkar@gmail.com" aria-label="Email" class="text-slate-400 hover:text-indigo-500 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </a>
+      </div>
+      © <span id="year"></span> Yashwanth Gowda &nbsp;·&nbsp; Tempe, Arizona
+    </footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
