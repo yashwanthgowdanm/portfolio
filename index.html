@@ -437,6 +437,20 @@
     text-decoration: underline;
   }
 
+  .build-row {
+    cursor: pointer;
+    transition: background .18s;
+  }
+  .build-row:hover {
+    background: var(--card-hover);
+  }
+  .build-row .build-title {
+    color: var(--text);
+  }
+  .build-row:hover .build-title {
+    color: var(--green);
+  }
+
   @media(max-width:800px) {
     .build-table th:nth-child(3),
     .build-table td:nth-child(3),
@@ -656,6 +670,18 @@
   .modal-cat{font-size:10.5px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:5px;}
   .modal-title{font-size:20px;font-weight:800;letter-spacing:-.3px;margin-bottom:10px;}
   .modal-stack{display:flex;flex-wrap:wrap;gap:5px;}
+  .modal-img{
+    width:100%;max-height:220px;object-fit:cover;
+    border-radius:10px;margin-top:16px;
+    border:1px solid var(--border);
+    background:#111;display:block;
+  }
+  .modal-img-placeholder{
+    width:100%;height:160px;border-radius:10px;margin-top:16px;
+    border:1px dashed rgba(255,255,255,.18);background:rgba(255,255,255,.03);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;color:var(--muted);letter-spacing:.5px;
+  }
   .modal-body{padding:22px 32px 32px;}
   .modal-body h4{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:18px;}
   .modal-body h4:first-child{margin-top:0;}
@@ -1101,7 +1127,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b1')" tabindex="0" role="button" aria-label="Hierarchical MPC — click for details">
                 <td class="build-num">1</td>
                 <td>
                   <div class="build-title">Hierarchical MPC: Solar Irrigation</div>
@@ -1109,10 +1135,10 @@
                 </td>
                 <td class="build-type">Control System</td>
                 <td class="build-stack">MPC · Adaptive PI · Penman-Monteith</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/hirearchical-mpc" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/hirearchical-mpc" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b2')" tabindex="0" role="button" aria-label="Autonomous Pitch Curator — click for details">
                 <td class="build-num">2</td>
                 <td>
                   <div class="build-title">Autonomous Pitch Curator</div>
@@ -1120,10 +1146,10 @@
                 </td>
                 <td class="build-type">Rover Simulation</td>
                 <td class="build-stack">MATLAB · Coverage Planning</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/pitch_curator_sim" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/pitch_curator_sim" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b3')" tabindex="0" role="button" aria-label="Autonomous Siren Detector — click for details">
                 <td class="build-num">3</td>
                 <td>
                   <div class="build-title">Autonomous Siren Detector</div>
@@ -1131,10 +1157,10 @@
                 </td>
                 <td class="build-type">DSP System</td>
                 <td class="build-stack">STFT · Signal Processing · Offline Detection</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/sirendetector-sim" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/sirendetector-sim" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b4')" tabindex="0" role="button" aria-label="FloraBot — click for details">
                 <td class="build-num">4</td>
                 <td>
                   <div class="build-title">FloraBot: Bio-Mimetic Agent</div>
@@ -1142,10 +1168,10 @@
                 </td>
                 <td class="build-type">Bio-Mimetic Simulation</td>
                 <td class="build-stack">Affective Computing · Metabolic Modeling</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/florabot_sim" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/florabot_sim" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b5')" tabindex="0" role="button" aria-label="BeachCrab — click for details">
                 <td class="build-num">5</td>
                 <td>
                   <div class="build-title">BeachCrab</div>
@@ -1153,7 +1179,7 @@
                 </td>
                 <td class="build-type">Robot Simulation</td>
                 <td class="build-stack">Klann Linkage · 4-Bar Scoop</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/BeachCrab" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/BeachCrab" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
             </tbody>
           </table>
@@ -1183,7 +1209,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b6')" tabindex="0" role="button" aria-label="DeepDrift EDR — click for details">
                 <td class="build-num">1</td>
                 <td>
                   <div class="build-title">DeepDrift: Zero-Day EDR</div>
@@ -1191,10 +1217,10 @@
                 </td>
                 <td class="build-type">SOAR / EDR</td>
                 <td class="build-stack">Python · Identity Logs · Response Automation</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/DeepDrift-EDR" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/DeepDrift-EDR" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b7')" tabindex="0" role="button" aria-label="Mini-SOAR — click for details">
                 <td class="build-num">2</td>
                 <td>
                   <div class="build-title">Mini-SOAR: Identity Threat Defense</div>
@@ -1202,10 +1228,10 @@
                 </td>
                 <td class="build-type">Security Automation</td>
                 <td class="build-stack">Python · Rules · Geolocation</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/Mini-SOAR" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/Mini-SOAR" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b8')" tabindex="0" role="button" aria-label="C2-Traffic-Emulator — click for details">
                 <td class="build-num">3</td>
                 <td>
                   <div class="build-title">C2-Traffic-Emulator</div>
@@ -1213,7 +1239,7 @@
                 </td>
                 <td class="build-type">Anomaly Detection</td>
                 <td class="build-stack">Isolation Forest · Network Simulation</td>
-                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/c2c-emulator" target="_blank" rel="noopener">GitHub ↗</a></td>
+                <td class="build-link"><a href="https://github.com/yashwanthgowdanm/c2c-emulator" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></td>
               </tr>
             </tbody>
           </table>
@@ -1243,7 +1269,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b9')" tabindex="0" role="button" aria-label="LifeFlow — click for details">
                 <td class="build-num">1</td>
                 <td>
                   <div class="build-title">LifeFlow</div>
@@ -1251,10 +1277,10 @@
                 </td>
                 <td class="build-type">Demo Web App</td>
                 <td class="build-stack">Frontend · Static Site</td>
-                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/lifeflow-static-demo-webapp/" target="_blank" rel="noopener">Demo ↗</a></td>
+                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/lifeflow-static-demo-webapp/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Demo ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b10')" tabindex="0" role="button" aria-label="Kisan Mitra — click for details">
                 <td class="build-num">2</td>
                 <td>
                   <div class="build-title">Kisan Mitra</div>
@@ -1262,10 +1288,10 @@
                 </td>
                 <td class="build-type">Demo Web App</td>
                 <td class="build-stack">Frontend · Static Site</td>
-                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/kisan-mitra-demo-webapp/" target="_blank" rel="noopener">Demo ↗</a></td>
+                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/kisan-mitra-demo-webapp/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Demo ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b11')" tabindex="0" role="button" aria-label="Solosphere — click for details">
                 <td class="build-num">3</td>
                 <td>
                   <div class="build-title">Solosphere</div>
@@ -1273,10 +1299,10 @@
                 </td>
                 <td class="build-type">Demo Web App</td>
                 <td class="build-stack">Frontend · Static Site</td>
-                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/solosphere-demo-webapp/" target="_blank" rel="noopener">Demo ↗</a></td>
+                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/solosphere-demo-webapp/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Demo ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b12')" tabindex="0" role="button" aria-label="Grocify — click for details">
                 <td class="build-num">4</td>
                 <td>
                   <div class="build-title">Grocify</div>
@@ -1284,10 +1310,10 @@
                 </td>
                 <td class="build-type">Demo Web App</td>
                 <td class="build-stack">Frontend · Static Site</td>
-                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/grocify-static-demo-webapp/" target="_blank" rel="noopener">Demo ↗</a></td>
+                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/grocify-static-demo-webapp/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Demo ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b13')" tabindex="0" role="button" aria-label="YouTube Growth Calc — click for details">
                 <td class="build-num">5</td>
                 <td>
                   <div class="build-title">YouTube Growth Calc</div>
@@ -1295,10 +1321,10 @@
                 </td>
                 <td class="build-type">Utility App</td>
                 <td class="build-stack">Java · Growth Estimation</td>
-                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/yt-subs-growth/" target="_blank" rel="noopener">App ↗</a></td>
+                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/yt-subs-growth/" target="_blank" rel="noopener" onclick="event.stopPropagation()">App ↗</a></td>
               </tr>
 
-              <tr>
+              <tr class="build-row" onclick="openBuildModal('b14')" tabindex="0" role="button" aria-label="IG Growth Calc — click for details">
                 <td class="build-num">6</td>
                 <td>
                   <div class="build-title">IG Growth Calc</div>
@@ -1306,7 +1332,7 @@
                 </td>
                 <td class="build-type">Utility App</td>
                 <td class="build-stack">Java · Social Analytics</td>
-                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/ig-growth-calc-est/" target="_blank" rel="noopener">App ↗</a></td>
+                <td class="build-link"><a href="https://yashwanthgowdanm.github.io/ig-growth-calc-est/" target="_blank" rel="noopener" onclick="event.stopPropagation()">App ↗</a></td>
               </tr>
             </tbody>
           </table>
@@ -1590,6 +1616,7 @@ const projects={
     emoji:'🤖',cat:'Autonomous Systems',
     title:'Autonomous Warehouse Patrolling Robot',
     stack:['ROS2','Nav2','SLAM','LiDAR','IMU','Depth Camera','Python','Gazebo','RViz'],
+    image:'img/warehouse-patrol.jpg',
     problem:'Warehouse environments require continuous autonomous patrol without human intervention — integrating mapping, localization, obstacle detection, and waypoint navigation into a reliable system.',
     approach:'Designed a layered ROS2 architecture with Nav2-based autonomous navigation and real-time SLAM mapping. Engineered a multi-sensor fusion pipeline integrating LiDAR, IMU, and Depth Camera for robust obstacle detection and patrol.',
     result:'Deployed on live hardware. Achieved continuous autonomous patrol without human intervention. Demo video and site available.',
@@ -1602,6 +1629,7 @@ const projects={
     emoji:'⚙️',cat:'Control Systems',
     title:'PAPI Controller: 2-DOF Hybrid Control for Solar Irrigation',
     stack:['MATLAB','Simulink','2-DOF Control','Inverse Dynamics','PID'],
+    image:'img/papi-controller.jpg',
     problem:'Solar-powered irrigation pumps face variable irradiance and load disturbances that a standard PID controller cannot effectively handle — setpoint tracking and disturbance rejection interfere with each other.',
     approach:'Designed a 2-DOF hybrid controller combining a physics-based inverse dynamics feedforward layer with a PID feedback loop. Validated across 25 MATLAB/Simulink test cases under variable irradiance and load disturbance.',
     result:'60% faster rise time and near-instant disturbance rejection compared to a standard PID baseline.',
@@ -1611,6 +1639,7 @@ const projects={
     emoji:'🔵',cat:'Multi-Agent Robotics',
     title:'Decentralised Swarm Robotics for Debris Detection',
     stack:['MATLAB','SLAM','Swarm Robotics','Multi-Agent Systems','Decentralised Control'],
+    image:'img/swarm-debris.png',
     problem:'Large-scale debris detection requires coordinated area coverage without a central controller — demanding decentralized navigation, obstacle avoidance, and collaborative mapping across many agents.',
     approach:'Simulated a decentralized swarm of 10–15 autonomous agents using SLAM. Implemented distributed navigation, task partitioning, and collaborative map merging without any centralized controller.',
     result:'Full area coverage achieved through autonomous task partitioning and agent consensus in all simulated environments.',
@@ -1620,6 +1649,7 @@ const projects={
     emoji:'🔥',cat:'ML for Engineering',
     title:'ProphetLSTM-GAN: Unsupervised Fault Detection for Rocket Engines',
     stack:['PyTorch','LSTM','GAN','Anomaly Detection','Time-Series','Python'],
+    image:'img/hybridlstm.png',
     problem:'Rocket engine telemetry fault detection typically requires labeled fault data — which is scarce, expensive, and often unavailable for rare failure modes.',
     approach:'Developed an unsupervised LSTM-GAN framework trained without labeled fault data. Engineered a combined scoring metric fusing LSTM reconstruction error with GAN discriminator confidence for earlier fault identification.',
     result:'+3.7% fault detection AUC over a standalone LSTM baseline — enabling earlier detection of developing engine faults without labeled data.',
@@ -1629,6 +1659,7 @@ const projects={
     emoji:'🔧',cat:'Embedded Robotics',
     title:'Microcontroller-Based Line Follower AGV',
     stack:['Arduino','C','PID Control','IR Sensors','Embedded Systems','Mechanical Design'],
+    image:'img/line-follower.jpg',
     problem:'Factory-floor material transport requires a reliable, low-cost AGV capable of smooth path following at variable speeds and under varying loads.',
     approach:'Designed and physically built a small-scale AGV integrating IR sensor arrays with PID-based motor control for real-time path following. Validated under variable load and speed conditions.',
     result:'Successfully tested physical model — validated sensor response latency and PID tuning for reliable line tracking.',
@@ -1638,6 +1669,7 @@ const projects={
     emoji:'🛡️',cat:'Cybersecurity',
     title:'PhishLens — Neural Phishing & Malicious URL Detection',
     stack:['PyTorch','1D CNN','Character-level Embeddings','Python','REST API','JavaScript'],
+    image:'img/phishlens.jpg',
     problem:'Phishing URL detection at scale requires a model robust to adversarial attacks and capable of generalizing to unseen malicious domains without relying on manual feature engineering.',
     approach:'Trained a PyTorch character-level 1D CNN mapping raw URLs into embedding representations. Used convolutional filters with adaptive max-pooling to capture URL-level spatial patterns.',
     result:'92.98% binary accuracy · ROC-AUC 0.9636 · Macro F1 0.9145 · Only −0.0288 AUC drop under full adversarial attack · 0.9929 ROC-AUC on 3 unseen datasets.',
@@ -1645,14 +1677,169 @@ const projects={
   }
 };
 
-// ── MODAL ──────────────────────────────────────────────
+// ── INDEPENDENT BUILDS DATA ─────────────────────────────
+const builds={
+  // Robotics & Simulations
+  b1:{
+    emoji:'🌱',cat:'Control System',
+    title:'Hierarchical MPC: Solar Irrigation',
+    stack:['MPC','Adaptive PI','Penman-Monteith','MATLAB'],
+    image:'img/SolarMPC.png',
+    desc:'Dual-loop control architecture for off-grid solar irrigation.',
+    approach:'Implements a hierarchical model predictive controller as the outer loop and adaptive PI as the inner loop. Uses the Penman-Monteith equation for evapotranspiration estimation to drive intelligent irrigation scheduling.',
+    result:'Optimised water usage relative to a standard fixed-schedule controller while handling variable irradiance and load conditions.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/hirearchical-mpc',type:'gh'}]
+  },
+  b2:{
+    emoji:'🏏',cat:'Rover Simulation',
+    title:'Autonomous Pitch Curator',
+    stack:['MATLAB','Coverage Planning'],
+    image:'img/Pitch-Curator.jpg',
+    desc:'MATLAB rover simulation for cricket pitch maintenance.',
+    approach:'Designed a coverage-planning rover simulation that autonomously navigates a cricket pitch boundary, applies maintenance actions row-by-row, and avoids pitch edges using a custom waypoint planner.',
+    result:'Full pitch coverage achieved in simulation with configurable maintenance pass width and rover speed parameters.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/pitch_curator_sim',type:'gh'}]
+  },
+  b3:{
+    emoji:'🚨',cat:'DSP System',
+    title:'Autonomous Siren Detector',
+    stack:['STFT','Signal Processing','Offline Detection'],
+    image:'img/siren_detector_sim.png',
+    desc:'Offline DSP system for siren detection and traffic signal preemption.',
+    approach:'Uses Short-Time Fourier Transform (STFT) to extract spectral features from audio recordings, identifies siren frequency signatures, and triggers a simulated traffic signal preemption response.',
+    result:'Reliable siren detection on offline audio samples across different siren types without false positives on ambient urban noise.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/sirendetector-sim',type:'gh'}]
+  },
+  b4:{
+    emoji:'🌿',cat:'Bio-Mimetic Simulation',
+    title:'FloraBot: Bio-Mimetic Agent',
+    stack:['Affective Computing','Metabolic Modeling'],
+    image:'img/Florabot.png',
+    desc:'Robotic plant agent with affective computing and survival behavior.',
+    approach:'Simulates a plant-inspired robotic agent that models metabolic needs (water, light, nutrients) and exhibits goal-directed survival behaviors — seeking resources, signalling stress states, and adapting to environmental changes.',
+    result:'Agent demonstrated stable resource-seeking behavior and stress-response cycles across multi-hour simulation runs.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/florabot_sim',type:'gh'}]
+  },
+  b5:{
+    emoji:'🦀',cat:'Robot Simulation',
+    title:'BeachCrab',
+    stack:['Klann Linkage','4-Bar Scoop','MATLAB'],
+    image:'img/BeachCrab.png',
+    desc:'Autonomous beach-cleaning robot simulation with linkage mechanisms.',
+    approach:'Designed a legged beach-cleaning robot using Klann linkage for locomotion and a 4-bar scoop mechanism for debris collection. Simulated kinematics, gait patterns, and scoop actuation in MATLAB.',
+    result:'Stable locomotion and scoop cycle validated in simulation; linkage geometry optimised for sandy terrain traversal.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/BeachCrab',type:'gh'}]
+  },
+  // Cybersecurity
+  b6:{
+    emoji:'🕵️',cat:'SOAR / EDR',
+    title:'DeepDrift: Zero-Day EDR',
+    stack:['Python','Identity Logs','Response Automation'],
+    image:'img/DeepDrift.png',
+    desc:'SOAR/EDR prototype for identity-related threat response.',
+    approach:'Built a Python-based detection engine that ingests identity event logs, applies anomaly scoring rules, and triggers automated playbook responses — simulating a lightweight EDR/SOAR pipeline for zero-day identity threats.',
+    result:'Successfully automated threat triage and response actions on synthetic identity log datasets with configurable detection thresholds.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/DeepDrift-EDR',type:'gh'}]
+  },
+  b7:{
+    emoji:'🔐',cat:'Security Automation',
+    title:'Mini-SOAR: Identity Threat Defense',
+    stack:['Python','Rules Engine','Geolocation'],
+    image:'img/mini-soar.png',
+    desc:'Automated identity-log response using rules and geolocation logic.',
+    approach:'Implements a rule-based SOAR pipeline that parses identity access logs, flags impossible-travel and high-risk login events using geolocation data, and auto-generates incident response tickets.',
+    result:'Detected and triaged simulated impossible-travel and anomalous login scenarios with accurate geolocation-based risk scoring.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/Mini-SOAR',type:'gh'}]
+  },
+  b8:{
+    emoji:'📡',cat:'Anomaly Detection',
+    title:'C2-Traffic-Emulator',
+    stack:['Isolation Forest','Network Simulation','Python'],
+    image:'img/c2_analysis.png',
+    desc:'Generates obfuscated C2 traffic and detects malicious channels.',
+    approach:'Generates synthetic obfuscated Command & Control (C2) network traffic alongside benign traffic, then applies an Isolation Forest anomaly detection model to distinguish malicious channels from normal network patterns.',
+    result:'Isolation Forest achieved reliable separation of C2 traffic from benign traffic on synthetic datasets with configurable obfuscation levels.',
+    links:[{label:'↗ GitHub',url:'https://github.com/yashwanthgowdanm/c2c-emulator',type:'gh'}]
+  },
+  // Web & Software
+  b9:{
+    emoji:'🩸',cat:'Demo Web App',
+    title:'LifeFlow',
+    stack:['Frontend','Static Site','HTML/CSS/JS'],
+    image:'img/lifeflow.png',
+    desc:'Blood donation hub connecting donors and recipients through a static demo interface.',
+    approach:'Built a static frontend web app concept for a blood donation platform, featuring donor registration, blood type matching UI, and a recipient request form — all rendered client-side without a backend.',
+    result:'Clean, functional demo interface showcasing the full donor-recipient matching flow.',
+    links:[{label:'↗ Demo',url:'https://yashwanthgowdanm.github.io/lifeflow-static-demo-webapp/',type:'demo'}]
+  },
+  b10:{
+    emoji:'🌾',cat:'Demo Web App',
+    title:'Kisan Mitra',
+    stack:['Frontend','Static Site','HTML/CSS/JS'],
+    image:'img/kisanmitra.png',
+    desc:'Farmer-focused web app concept for crop guidance and resources.',
+    approach:'Designed a farmer-centric web interface providing crop guidance, seasonal advice, and resource links — built as a fully static site targeting low-bandwidth rural users.',
+    result:'Accessible, low-friction demo interface for agricultural resource discovery.',
+    links:[{label:'↗ Demo',url:'https://yashwanthgowdanm.github.io/kisan-mitra-demo-webapp/',type:'demo'}]
+  },
+  b11:{
+    emoji:'🧳',cat:'Demo Web App',
+    title:'Solosphere',
+    stack:['Frontend','Static Site','HTML/CSS/JS'],
+    image:'img/solosphere.png',
+    desc:'Static travel web app concept for solo travelers.',
+    approach:'Created a solo travel discovery platform concept with destination browsing, packing checklists, and safety tips — implemented as a responsive static site.',
+    result:'Polished travel-app UI with smooth navigation across destination and resource pages.',
+    links:[{label:'↗ Demo',url:'https://yashwanthgowdanm.github.io/solosphere-demo-webapp/',type:'demo'}]
+  },
+  b12:{
+    emoji:'🛒',cat:'Demo Web App',
+    title:'Grocify',
+    stack:['Frontend','Static Site','HTML/CSS/JS'],
+    image:'img/grocify.png',
+    desc:'Grocery-style product browsing and shopping assistant demo.',
+    approach:'Built a grocery shopping assistant demo with product category browsing, cart management UI, and a search interface — fully static with client-side state.',
+    result:'Functional demo app demonstrating product filtering, cart interaction, and checkout flow.',
+    links:[{label:'↗ Demo',url:'https://yashwanthgowdanm.github.io/grocify-static-demo-webapp/',type:'demo'}]
+  },
+  b13:{
+    emoji:'▶️',cat:'Utility App',
+    title:'YouTube Growth Calc',
+    stack:['Java','Growth Estimation'],
+    image:'img/yt-growth.png',
+    desc:'Utility app for estimating future subscriber counts and growth rates.',
+    approach:'Implements a compound growth model allowing users to input current subscriber count and daily/weekly growth rate to project subscriber milestones over custom time horizons.',
+    result:'Simple, accurate growth projection tool with clean UI for content creator planning.',
+    links:[{label:'↗ App',url:'https://yashwanthgowdanm.github.io/yt-subs-growth/',type:'demo'}]
+  },
+  b14:{
+    emoji:'📸',cat:'Utility App',
+    title:'IG Growth Calc',
+    stack:['Java','Social Analytics'],
+    image:'img/ig-growth.png',
+    desc:'Utility tool for estimating Instagram follower growth metrics.',
+    approach:'Uses a configurable growth rate model to project Instagram follower counts over time. Users input current followers and an estimated daily growth percentage to see projected follower milestones.',
+    result:'Lightweight, accurate follower projection utility with a clean input/output interface.',
+    links:[{label:'↗ App',url:'https://yashwanthgowdanm.github.io/ig-growth-calc-est/',type:'demo'}]
+  }
+};
+
+// ── MODAL HELPERS ──────────────────────────────────────
+function buildImageHtml(imgSrc){
+  // Renders an <img> tag; if the image 404s it swaps to a placeholder
+  return `<img class="modal-img" src="${imgSrc}" alt="Project screenshot"
+    onerror="this.outerHTML='<div class=\\'modal-img-placeholder\\'>📷 Add image to ${imgSrc}</div>'" />`;
+}
+
+// ── ACADEMIC PROJECTS MODAL ─────────────────────────────
 function openModal(id){
   const p=projects[id]; if(!p) return;
   document.getElementById('modal-hero').innerHTML=`
     <div class="modal-emoji">${p.emoji}</div>
     <p class="modal-cat">${p.cat}</p>
     <h2 class="modal-title">${p.title}</h2>
-    <div class="modal-stack">${p.stack.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>`;
+    <div class="modal-stack">${p.stack.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
+    ${buildImageHtml(p.image)}`;
   document.getElementById('modal-body').innerHTML=`
     <h4>Problem</h4><p>${p.problem}</p>
     <h4>Approach</h4><p>${p.approach}</p>
@@ -1661,6 +1848,25 @@ function openModal(id){
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
+
+// ── INDEPENDENT BUILDS MODAL ────────────────────────────
+function openBuildModal(id){
+  const p=builds[id]; if(!p) return;
+  document.getElementById('modal-hero').innerHTML=`
+    <div class="modal-emoji">${p.emoji}</div>
+    <p class="modal-cat">${p.cat}</p>
+    <h2 class="modal-title">${p.title}</h2>
+    <div class="modal-stack">${p.stack.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
+    ${buildImageHtml(p.image)}`;
+  document.getElementById('modal-body').innerHTML=`
+    <h4>About</h4><p>${p.desc}</p>
+    <h4>Approach</h4><p>${p.approach}</p>
+    <h4>Result</h4><p>${p.result}</p>
+    <div class="modal-links">${p.links.map(l=>`<a class="modal-link ${l.type}" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}</div>`;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
 function closeModal(e){
   if(e && e.target!==document.getElementById('modal')) return;
   document.getElementById('modal').classList.remove('open');
@@ -1690,6 +1896,11 @@ window.addEventListener('scroll',updateActive,{passive:true});
 
 // ── KEYBOARD: track rows ────────────────────────────────
 document.querySelectorAll('.track-row').forEach(row=>{
+  row.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();row.click();} });
+});
+
+// ── KEYBOARD: build rows ────────────────────────────────
+document.querySelectorAll('.build-row').forEach(row=>{
   row.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();row.click();} });
 });
 
