@@ -547,13 +547,14 @@ section.sec{padding:clamp(56px,8vw,96px) 0 0}
           <h3>Research Assistant</h3>
           <p class="org">NICE Lab (Neuro-symbolic Intelligent Cyber-physical Systems) — Prof. Zhe Xu · Arizona State University, Tempe, AZ</p>
           <ul>
-            <li>Deployed a fully autonomous water-bottle pickup on a Hello Robot Stretch 3 mobile manipulator, using YOLO detection to locate and grasp the bottle from a table.</li>
-            <li>Built a semi-autonomous garment-handling task: OpenCV detection of a hanger with cloth, pickup, and placement on a garment rack through teleoperation and predefined motions.</li>
+            <li>Deployed a fully autonomous water-bottle pickup on a Hello Robot Stretch 3 mobile manipulator, using YOLO11 detection and D405 depth with coarse-to-fine centering of the base and lift.</li>
+            <li>Built a 10 Hz data-collection pipeline that logs synchronized wrist-camera images, joint states and a language instruction for every grasp episode, formatted for OpenVLA training.</li>
+            <li>Built an autonomous hanger pickup using HSV color detection, depth deprojection to 3D, base/arm/lift alignment and motor-current contact detection for soft touchdown, then placed the hanger on a garment rack with a scripted, hard-coded trajectory.</li>
             <li>Developed Python control for the TetherIA Aero Hand, a 7-DOF tendon-driven robotic hand, over its Serial API, and integrated it with the Stretch 3 over USB for whole-body reach plus finger-level grasping.</li>
             <li>Implemented and validated joint-space trajectory planners across 4 grasp configurations (rolling dice, bottle grasping, card picking, teleoperation), cutting trajectory error recurrence by 25% across 20 test runs.</li>
             <li>Building autonomous object detection and pick-and-place for a TurtleBot with an OpenMANIPULATOR-X arm in a warehouse environment (ongoing).</li>
           </ul>
-          <div class="chips"><span class="chip key">Python</span><span class="chip key">YOLO</span><span class="chip">OpenCV</span><span class="chip">Joint-Space Control</span><span class="chip">Stretch 3</span><span class="chip">TetherIA Aero Hand</span><span class="chip">Serial API</span><span class="chip">TurtleBot</span></div>
+          <div class="chips"><span class="chip key">Python</span><span class="chip key">YOLO</span><span class="chip">OpenCV</span><span class="chip">OpenVLA data</span><span class="chip">Contact detection</span><span class="chip">Joint-Space Control</span><span class="chip">Stretch 3</span><span class="chip">TetherIA Aero Hand</span><span class="chip">Serial API</span><span class="chip">TurtleBot</span></div>
         </div>
       </article>
       <article class="log-row">
@@ -616,30 +617,42 @@ section.sec{padding:clamp(56px,8vw,96px) 0 0}
     <div class="ds-list">
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/nice-lab-grasping.jpg" alt="Stretch 3 mobile manipulator with a dexterous robotic hand" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph mono',textContent:'Demo video coming soon'}))"></div><div class="figcap mono"><span>Fig. P-00</span><span>Feb 2026 – Present</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/stretch-bottle-grasp.jpg" alt="Stretch 3 wrist camera view with a water bottle between the gripper fingers" loading="lazy"></div><div class="figcap mono"><span>Fig. P-01</span><span>2026</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-00 · Manipulation (research)</span><span>ASU — NICE Lab, Prof. Zhe Xu</span></div>
-          <div class="ds-main"><h3>Vision-Guided Grasping &amp; Dexterous-Hand Control on a Mobile Manipulator</h3>
-            <p>Autonomous object pickup on a Hello Robot Stretch 3 using YOLO detection, semi-autonomous garment handling with OpenCV, and Python control of a 7-DOF tendon-driven TetherIA Aero Hand integrated with the Stretch 3 over USB.</p></div>
-          <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>Python · YOLO · OpenCV · Serial API · Joint-Space Control · Stretch 3 · Aero Hand</td></tr><tr><th>Result</th><td class="result">25% less trajectory error recurrence · 4 grasp configurations · 20 runs</td></tr></table></div>
+          <div class="ds-top mono"><span class="id">P-01 · Manipulation + robot learning</span><span>ASU — NICE Lab, Prof. Zhe Xu</span></div>
+          <div class="ds-main"><h3>Autonomous Bottle Grasping on Stretch 3 with OpenVLA Data Collection</h3>
+            <p>A fully autonomous grasp pipeline on a Hello Robot Stretch 3: YOLO11 finds the bottle in the D405 wrist camera, depth gives its distance, and the robot centers its base and lift in a coarse-to-fine macro and micro scan before extending, grasping and lifting. Every run is logged at 10 Hz as synchronized images, joint states and a language instruction, formatted for training the OpenVLA vision-language-action model.</p></div>
+          <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>Python · YOLO11 · Intel RealSense D405 · stretch_body · OpenCV · NumPy</td></tr><tr><th>Result</th><td class="result">Autonomous grasp · 10 Hz OpenVLA-format episodes</td></tr></table></div>
+          <div class="ds-links"><a class="btn primary" href="https://github.com/yashwanthgowdanm/stretch3-autonomous-bottle-grasp" target="_blank" rel="noopener">View project ↗</a></div>
         </div>
       </article>
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/warehouse-patrol.jpg" alt="Autonomous warehouse patrolling robot and its simulated warehouse environment" loading="lazy"></div><div class="figcap mono"><span>Fig. P-01</span><span>Jan–May 2025</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/stretch-hanger-detection.png" alt="Wrist camera view with the detected hanger contour, bounding box and grasp point" loading="lazy"></div><div class="figcap mono"><span>Fig. P-02</span><span>2026</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-01 · Autonomous systems · Team project</span><span>ASU — Experimental &amp; Deployment of Robotic Systems</span></div>
+          <div class="ds-top mono"><span class="id">P-02 · Manipulation + perception</span><span>ASU — NICE Lab, Prof. Zhe Xu</span></div>
+          <div class="ds-main"><h3>Autonomous Hanger Pickup and Rack Placement on Stretch 3</h3>
+            <p>The robot finds an orange hanger with HSV color segmentation, deprojects the grasp pixel to a 3D point using depth and camera intrinsics, and aligns its base, arm and lift to it. A guarded descent watches lift motor current to detect contact for a soft touchdown before grasping. The hanger is then placed on a garment rack with a scripted, hard-coded trajectory.</p></div>
+          <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>Python · OpenCV (HSV) · Intel RealSense D405 · stretch_body · NumPy</td></tr><tr><th>Result</th><td class="result">Autonomous pickup · current-based contact detection · scripted rack placement</td></tr></table></div>
+          <div class="ds-links"><a class="btn primary" href="https://github.com/yashwanthgowdanm/stretch3-hanger-pick-and-place" target="_blank" rel="noopener">View project ↗</a></div>
+        </div>
+      </article>
+
+      <article class="ds sheet rv">
+        <div class="ds-fig"><div class="ds-img"><img src="img/warehouse-patrol.jpg" alt="Autonomous warehouse patrolling robot in simulation" loading="lazy"></div><div class="figcap mono"><span>Fig. P-03</span><span>Jan–May 2025</span></div></div>
+        <div class="ds-body">
+          <div class="ds-top mono"><span class="id">P-03 · Autonomous systems · Team project</span><span>ASU — Experimental &amp; Deployment of Robotic Systems</span></div>
           <div class="ds-main"><h3>Autonomous Warehouse Patrolling Robot</h3>
             <p>Designed and deployed a low-cost ROS 2-based autonomous patrol robot on a real TurtleBot 4, configured to run in a simulated warehouse environment. Integrated Nav2, SLAM, LiDAR, IMU, and depth-camera inputs to support mapping, localization, obstacle detection, and waypoint patrol with minimal human intervention.</p></div>
-          <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>TurtleBot 4 · ROS 2 · Nav2 · SLAM · LiDAR · IMU · Depth Camera · Python · Gazebo</td></tr><tr><th>Result</th><td class="result">Real TurtleBot 4 · simulated warehouse · demo video</td></tr></table></div>
+          <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>ROS 2 · Nav2 · SLAM · LiDAR · IMU · Depth Camera · Python · Gazebo</td></tr><tr><th>Result</th><td class="result">Real TurtleBot 4 · simulated warehouse · demo video</td></tr></table></div>
           <div class="ds-links"><a class="btn primary" href="https://asu-ras598-2025-s-team08.github.io/autonomous-warehouse-patrolling-robot/" target="_blank" rel="noopener">View project ↗</a></div>
         </div>
       </article>
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/papi-controller.jpg" alt="PAPI controller block diagram" loading="lazy" style="object-fit:contain;background:#fff"></div><div class="figcap mono"><span>Fig. P-02</span><span>Aug–Dec 2025</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/papi-controller.jpg" alt="PAPI controller block diagram" loading="lazy" style="object-fit:contain;background:#fff"></div><div class="figcap mono"><span>Fig. P-04</span><span>Aug–Dec 2025</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-02 · Control systems</span><span>ASU — Advanced System Modelling &amp; Dynamics</span></div>
+          <div class="ds-top mono"><span class="id">P-04 · Control systems</span><span>ASU — Advanced System Modelling &amp; Dynamics</span></div>
           <div class="ds-main"><h3>PAPI Controller: 2-DOF Hybrid Control for Solar Irrigation</h3>
             <p>Designed a 2-DOF hybrid control architecture for solar-powered irrigation pumps using inverse-dynamics feedforward control and PID feedback. Validated the controller in MATLAB/Simulink under changing solar irradiance and load disturbance conditions.</p></div>
           <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>MATLAB · Simulink · 2-DOF Control · Inverse Dynamics · PID</td></tr><tr><th>Result</th><td class="result">60% faster rise time · 25 test cases</td></tr></table></div>
@@ -648,9 +661,9 @@ section.sec{padding:clamp(56px,8vw,96px) 0 0}
       </article>
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/swarm-debris.png" alt="Swarm agent trajectories plot" loading="lazy" style="object-fit:contain;background:#fff"></div><div class="figcap mono"><span>Fig. P-03</span><span>Aug–Dec 2024</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/swarm-debris.png" alt="Swarm agent trajectories plot" loading="lazy" style="object-fit:contain;background:#fff"></div><div class="figcap mono"><span>Fig. P-05</span><span>Aug–Dec 2024</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-03 · Multi-agent robotics · Team project</span><span>ASU — Multi-Robot Systems</span></div>
+          <div class="ds-top mono"><span class="id">P-05 · Multi-agent robotics · Team project</span><span>ASU — Multi-Robot Systems</span></div>
           <div class="ds-main"><h3>Decentralised Swarm Robotics for Debris Detection</h3>
             <p>Simulated a decentralized swarm of 10–15 autonomous agents for cooperative debris detection and mapping. Implemented distributed navigation, obstacle avoidance, task partitioning, and collaborative map merging without a centralized controller.</p></div>
           <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>MATLAB · SLAM · Swarm Robotics · Multi-Agent Systems · Decentralised Control</td></tr><tr><th>Result</th><td class="result">10–15 agents · full area coverage</td></tr></table></div>
@@ -659,9 +672,9 @@ section.sec{padding:clamp(56px,8vw,96px) 0 0}
       </article>
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/hybridlstm.png" alt="Rocket launch" loading="lazy"></div><div class="figcap mono"><span>Fig. P-04</span><span>Aug–Dec 2025</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/hybridlstm.png" alt="Rocket launch" loading="lazy"></div><div class="figcap mono"><span>Fig. P-06</span><span>Aug–Dec 2025</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-04 · ML for engineering</span><span>ASU — Applied ML for Mechanical Engineers</span></div>
+          <div class="ds-top mono"><span class="id">P-06 · ML for engineering</span><span>ASU — Applied ML for Mechanical Engineers</span></div>
           <div class="ds-main"><h3>ProphetLSTM-GAN: Unsupervised Fault Detection for Rocket Engines</h3>
             <p>Developed an unsupervised anomaly detection framework for rocket engine telemetry using a hybrid LSTM-GAN architecture. Combined reconstruction error and discriminator confidence to identify abnormal time-series behavior without requiring labeled fault data.</p></div>
           <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>PyTorch · LSTM · GAN · Anomaly Detection · Time-Series</td></tr><tr><th>Result</th><td class="result">+3.7% AUC · no labelled data required</td></tr></table></div>
@@ -670,9 +683,9 @@ section.sec{padding:clamp(56px,8vw,96px) 0 0}
       </article>
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/line-follower.jpg" alt="Line follower AGV prototype" loading="lazy"></div><div class="figcap mono"><span>Fig. P-05</span><span>Aug 2021–Aug 2022</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/line-follower.jpg" alt="Line follower AGV prototype" loading="lazy"></div><div class="figcap mono"><span>Fig. P-07</span><span>Aug 2021–Aug 2022</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-05 · Embedded robotics</span><span>Bangalore Institute of Technology</span></div>
+          <div class="ds-top mono"><span class="id">P-07 · Embedded robotics</span><span>Bangalore Institute of Technology</span></div>
           <div class="ds-main"><h3>Microcontroller-Based Line Follower AGV</h3>
             <p>Designed and physically built a small-scale automated guided vehicle for factory-floor material transport. Integrated IR sensor arrays with PID-based motor control and validated line-tracking behavior under variable speed and load conditions.</p></div>
           <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>Arduino · C · PID Control · IR Sensors · Embedded Systems</td></tr><tr><th>Result</th><td class="result">Physical model built and tested</td></tr></table></div>
@@ -681,9 +694,9 @@ section.sec{padding:clamp(56px,8vw,96px) 0 0}
       </article>
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/phishlens.jpg" alt="PhishLens" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph mono',textContent:'Figure pending'}))"></div><div class="figcap mono"><span>Fig. P-06</span><span>Jan–May 2026</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/phishlens.jpg" alt="PhishLens" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph mono',textContent:'Figure pending'}))"></div><div class="figcap mono"><span>Fig. P-08</span><span>Jan–May 2026</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-06 · Cybersecurity + ML</span><span>ASU — CSE 543: Information Assurance &amp; Security</span></div>
+          <div class="ds-top mono"><span class="id">P-08 · Cybersecurity + ML</span><span>ASU — CSE 543: Information Assurance &amp; Security</span></div>
           <div class="ds-main"><h3>PhishLens — Neural Phishing &amp; URL Threat Detection</h3>
             <p>Built a PyTorch character-level 1D CNN for malicious URL classification using raw URL embeddings, convolutional feature extraction, and adaptive max-pooling, connecting machine learning with cybersecurity by detecting phishing and malicious URL patterns.</p></div>
           <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>PyTorch · 1D CNN · Adversarial ML · REST API · Python</td></tr><tr><th>Result</th><td class="result">92.98% accuracy · ROC-AUC 0.9636 (0.9929 on 3 unseen datasets)</td></tr></table></div>
@@ -692,9 +705,9 @@ section.sec{padding:clamp(56px,8vw,96px) 0 0}
       </article>
 
       <article class="ds sheet rv">
-        <div class="ds-fig"><div class="ds-img"><img src="img/porous-convection.png" alt="Natural convection in an inclined porous enclosure" loading="lazy" style="object-fit:contain;background:#fff"></div><div class="figcap mono"><span>Fig. P-07</span><span>Feb–Aug 2021</span></div></div>
+        <div class="ds-fig"><div class="ds-img"><img src="img/porous-convection.png" alt="Natural convection in an inclined porous enclosure" loading="lazy" style="object-fit:contain;background:#fff"></div><div class="figcap mono"><span>Fig. P-09</span><span>Feb–Aug 2021</span></div></div>
         <div class="ds-body">
-          <div class="ds-top mono"><span class="id">P-07 · Thermal simulation</span><span>Bangalore Institute of Technology</span></div>
+          <div class="ds-top mono"><span class="id">P-09 · Thermal simulation</span><span>Bangalore Institute of Technology</span></div>
           <div class="ds-main"><h3>Thermal Analysis: Inclination Effects on Natural Convection in Porous Enclosures</h3>
             <p>Performed ANSYS-based computational thermal analysis to study natural convection in inclined porous enclosures. Analyzed Nusselt number variation, velocity profiles, and temperature distribution across multiple inclination configurations.</p></div>
           <div class="ds-spec"><table class="kv"><tr><th>Stack</th><td>ANSYS · FEA / CFD · Thermal Analysis · Heat Transfer · Fluid Mechanics</td></tr><tr><th>Result</th><td class="result">Nusselt number, velocity &amp; temperature trends across inclinations</td></tr></table></div>
